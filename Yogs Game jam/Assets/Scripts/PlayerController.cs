@@ -42,7 +42,9 @@ public class PlayerController : MonoBehaviour
             if (Input.GetKey("e") || Input.GetKey("right ctrl"))
             {
                 isCarrying = true;
-                package.SetActive(false);
+                //package.SetActive(false);
+                package.GetComponent<SpriteRenderer>().enabled = false;
+                package.GetComponent<BoxCollider2D>().enabled = false;
             }
         }
         if (canPet)
@@ -62,7 +64,9 @@ public class PlayerController : MonoBehaviour
 
             if (Input.GetKey("q") || Input.GetKey("right shift"))
             {
-                package.SetActive(true);
+                //package.SetActive(true);
+                package.GetComponent<SpriteRenderer>().enabled = true;
+                package.GetComponent<BoxCollider2D>().enabled = true;
                 package.transform.position = new Vector3(transform.position.x +2, transform.position.y, transform.position.z);
                 isCarrying = false;
             }
@@ -72,7 +76,6 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("hasPackage", false);
             currentSpeed = speed;
         }
-
 
     }
 
@@ -131,7 +134,6 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("isRunning", true);
             animator.SetBool("isFacingRight", false);
             rigidbody2d.velocity = new Vector2(-currentSpeed, rigidbody2d.velocity.y);
-
 
             if (!isJumping)
             {
