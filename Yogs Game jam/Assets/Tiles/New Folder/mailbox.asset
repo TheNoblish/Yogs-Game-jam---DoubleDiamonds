@@ -10,10 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: sprites_9
+  m_Name: mailbox
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: 6155212226941906339, guid: a4cf43909a182754faa6e494a09e2b07,
-    type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3979c5c5fd710cf41bb5394ada74b909, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1
