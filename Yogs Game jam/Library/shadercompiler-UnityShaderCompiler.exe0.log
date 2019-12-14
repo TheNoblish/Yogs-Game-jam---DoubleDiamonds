@@ -1,5 +1,2 @@
 Base path: 'C:/Program Files/Unity/Hub/Editor/2019.2.15f1/Editor/Data', plugins path 'C:/Program Files/Unity/Hub/Editor/2019.2.15f1/Editor/Data/PlaybackEngines'
 Cmd: initializeCompiler
-Cmd: preprocess
-  error: 1 plat 21 at (16): Unrecognized #pragma surface directive: Lambert
-  insize=1075 outsize=1141 ok=1
