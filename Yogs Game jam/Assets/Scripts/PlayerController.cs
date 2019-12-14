@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        isCarrying = true;
         animator = GetComponent<Animator>();
         rigidbody2d = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -53,6 +54,7 @@ public class PlayerController : MonoBehaviour
         // change speed while carrying and allow dropping the package
         if (isCarrying)
         {
+            animator.SetBool("hasPackage", true);
             currentSpeed = speed / 2;
 
             if (Input.GetKey("q") || Input.GetKey("right shift"))
@@ -64,6 +66,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
+            animator.SetBool("hasPackage", false);
             currentSpeed = speed;
         }
 
@@ -119,6 +122,8 @@ public class PlayerController : MonoBehaviour
         //If the player presses A or LEFT ARROW KEY
         if (Input.GetKey("a") || Input.GetKey("left"))
         {
+            animator.SetBool("isRunning", true);
+            animator.SetBool("isFacingRight", false);
             rigidbody2d.velocity = new Vector2(-currentSpeed, rigidbody2d.velocity.y);
 
             if (!isJumping)
@@ -129,6 +134,8 @@ public class PlayerController : MonoBehaviour
         //Else if the player presses D or RIGHT ARROW KEY
         else if (Input.GetKey("d") || Input.GetKey("right"))
         {
+            animator.SetBool("isRunning", true);
+            animator.SetBool("isFacingRight", true);
             rigidbody2d.velocity = new Vector2(currentSpeed, rigidbody2d.velocity.y);
 
             if (!isJumping)
@@ -139,6 +146,8 @@ public class PlayerController : MonoBehaviour
         //Else (when the player is not moving left or right)
         else
         {
+            animator.SetBool("isRunning", false);
+            animator.SetBool("isFacingRight", true);
             //We set the velocity of x to 0 so the player isn't slip sliding around
             rigidbody2d.velocity = new Vector2(0, rigidbody2d.velocity.y);
 
