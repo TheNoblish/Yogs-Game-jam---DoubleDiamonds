@@ -8,9 +8,6 @@ public class PlayerController : MonoBehaviour
     Rigidbody2D rigidbody2d;
     SpriteRenderer spriteRenderer;
 
-    AudioSource audioSource;
-    [SerializeField] private AudioClip[] m_FootstepSounds;
-
     bool isJumping;
     public static bool isCarrying;
     bool onPackage;
@@ -27,7 +24,6 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        audioSource = GetComponent<AudioSource>();
         isCarrying = true;
         animator = GetComponent<Animator>();
         rigidbody2d = GetComponent<Rigidbody2D>();
@@ -73,7 +69,6 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("hasPackage", false);
             currentSpeed = speed;
         }
-
 
     }
 
@@ -127,12 +122,9 @@ public class PlayerController : MonoBehaviour
         //If the player presses A or LEFT ARROW KEY
         if (Input.GetKey("a") || Input.GetKey("left"))
         {
-            Footsteps();
-            spriteRenderer.flipX = false;
             animator.SetBool("isRunning", true);
             animator.SetBool("isFacingRight", false);
             rigidbody2d.velocity = new Vector2(-currentSpeed, rigidbody2d.velocity.y);
-
 
             if (!isJumping)
             {
@@ -142,8 +134,6 @@ public class PlayerController : MonoBehaviour
         //Else if the player presses D or RIGHT ARROW KEY
         else if (Input.GetKey("d") || Input.GetKey("right"))
         {
-            Footsteps();
-            spriteRenderer.flipX = true;
             animator.SetBool("isRunning", true);
             animator.SetBool("isFacingRight", true);
             rigidbody2d.velocity = new Vector2(currentSpeed, rigidbody2d.velocity.y);
@@ -183,24 +173,5 @@ public class PlayerController : MonoBehaviour
             isJumping = true;
             //jumping animation
         }
-    }
-
-    void Footsteps()
-    {
-        if (!isJumping)
-        {
-            return;
-        }
-
-        StartCoroutine(PlayFootsteps());
-    }
-
-    IEnumerator PlayFootsteps()
-    {
-        int n = Random.Range(1, m_FootstepSounds.Length);
-        audioSource.clip = m_FootstepSounds[n];
-        audioSource.PlayOneShot(audioSource.clip);
-        m_FootstepSounds[n] = m_FootstepSounds[0];
-        m_FootstepSounds[0] = audioSource.clip;
     }
 }
