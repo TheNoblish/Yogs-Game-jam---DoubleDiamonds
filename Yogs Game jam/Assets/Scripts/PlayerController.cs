@@ -86,6 +86,12 @@ public class PlayerController : MonoBehaviour
             canPet = true;
             currentEnemy = other.gameObject.transform.parent.gameObject;
         }
+
+        if (other.CompareTag("NPC"))
+        {
+            //rigidbody2d.constraints = RigidbodyConstraints2D.FreezePositionX;
+            other.GetComponent<NPCManager>().startDialogue();
+        }
     }
 
     
