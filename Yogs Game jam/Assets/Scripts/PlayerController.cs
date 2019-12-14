@@ -41,6 +41,14 @@ public class PlayerController : MonoBehaviour
                 package.SetActive(false);
             }
         }
+        if (canPet)
+        {
+            if (Input.GetKey("s") || Input.GetKey("down"))
+            {
+                Debug.Log("pet");
+                currentEnemy.GetComponent<enemyController>().pets++;
+            }
+        }
 
         // change speed while carrying and allow dropping the package
         if (isCarrying)
@@ -64,6 +72,7 @@ public class PlayerController : MonoBehaviour
     // allow player to pikcup while on the package
     void OnTriggerEnter2D(Collider2D other)
     {
+        // allow player to pikcup while on the package
         if (other.CompareTag("Package"))
             onPackage = true;
         // allow petting and set specific enemy being petted
@@ -85,11 +94,23 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    //stop being allowed to pickup when leaving the package
+    
     void OnTriggerExit2D(Collider2D other)
     {
+        //stop being allowed to pickup when leaving the package
         if (other.CompareTag("Package"))
             onPackage = false;
+        // stop allowing petting
+        if (other.name == "groundEnemy")
+        {
+            canPet = false;
+            currentEnemy = null;
+        }
+        else if (other.name == "enemyArea")
+        {
+            canPet = false;
+            currentEnemy = null;
+        }
     }
 
     private void FixedUpdate()
