@@ -23,20 +23,17 @@ public class NPCManager : MonoBehaviour
         dialogueManager = GameObject.Find("Dialogue Manager");
     }
 
+    public void startDialogue()
+    {
+        if (isFriendly)
+        {
+            dialogueManager.GetComponent<DialogueSystem>().startDialogue(name, dialogueArray);
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
-        float distance = Vector2.Distance(player.transform.position, transform.position);
-        if (isFriendly && distance < 4)
-        {
-            if (!hasSpoken)
-            {
-                hasSpoken = true;
-                dialogueManager.GetComponent<DialogueSystem>().startDialogue(name, dialogueArray);
-            }
-        } else if (distance > 4)
-        {
-            hasSpoken = false;
-        }
+
     }
 }
