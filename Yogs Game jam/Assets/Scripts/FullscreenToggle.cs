@@ -19,13 +19,8 @@ public class FullscreenToggle : MonoBehaviour
         
     }
 
-    public void toggleWindowed()
+    public void toggleFullscreen(bool isFullscreen)
     {
-
-    }
-
-    public void toggleFullscreen()
-    {
-
+        Screen.fullScreen = isFullscreen;
     }
 }
