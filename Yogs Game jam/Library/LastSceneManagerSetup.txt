@@ -1,9 +1,5 @@
 sceneSetups:
-<<<<<<< HEAD
-- path: Assets/PlayerController Sample.unity
-=======
-- path: Assets/Scenes/Level.unity
->>>>>>> 229a502a62cba81d16ddcb84ebd8152c3eadc13e
+- path: Assets/Scenes/PlayerController Sample.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
