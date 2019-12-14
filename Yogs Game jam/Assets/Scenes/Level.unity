@@ -4317,7 +4317,7 @@ PrefabInstance:
     - target: {fileID: 3753884305755292380, guid: 0a76b5759e55112409f23551ba0b3663,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.1
+      value: 4.77
       objectReference: {fileID: 0}
     - target: {fileID: 3753884305755292380, guid: 0a76b5759e55112409f23551ba0b3663,
         type: 3}
@@ -4797,6 +4797,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: package
+      objectReference: {fileID: 0}
+    - target: {fileID: 6988531555273598424, guid: 16f0e031ddd7c1f429e0ca68e819e3e8,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 6988531555273598428, guid: 16f0e031ddd7c1f429e0ca68e819e3e8,
         type: 3}

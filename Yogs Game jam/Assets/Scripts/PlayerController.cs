@@ -9,14 +9,17 @@ public class PlayerController : MonoBehaviour
     SpriteRenderer spriteRenderer;
 
     bool isJumping;
-    bool isCarrying;
+    public static bool isCarrying;
     bool onPackage;
+    public bool canPet;
     public float speed = 5;
     public float jumpHeight = 5;
     public Transform jumpChecker;
     public GameObject package;
     public  float currentSpeed;
     private float currentJumpHeight;
+
+    public GameObject currentEnemy;
 
     // Start is called before the first frame update
     void Start()
@@ -36,6 +39,14 @@ public class PlayerController : MonoBehaviour
             {
                 isCarrying = true;
                 package.SetActive(false);
+            }
+        }
+        if (canPet)
+        {
+            if (Input.GetKey("s") || Input.GetKey("down"))
+            {
+                Debug.Log("pet");
+                currentEnemy.GetComponent<enemyController>().pets++;
             }
         }
 
@@ -61,6 +72,7 @@ public class PlayerController : MonoBehaviour
     // allow player to pikcup while on the package
     void OnTriggerEnter2D(Collider2D other)
     {
+        // allow player to pikcup while on the package
         if (other.CompareTag("Package"))
             onPackage = true;
         // allow petting and set specific enemy being petted
@@ -76,11 +88,23 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    //stop being allowed to pickup when leaving the package
+    
     void OnTriggerExit2D(Collider2D other)
     {
+        //stop being allowed to pickup when leaving the package
         if (other.CompareTag("Package"))
             onPackage = false;
+        // stop allowing petting
+        if (other.name == "groundEnemy")
+        {
+            canPet = false;
+            currentEnemy = null;
+        }
+        else if (other.name == "enemyArea")
+        {
+            canPet = false;
+            currentEnemy = null;
+        }
     }
 
     private void FixedUpdate()
