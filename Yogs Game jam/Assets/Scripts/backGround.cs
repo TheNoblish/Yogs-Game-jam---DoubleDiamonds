@@ -6,30 +6,33 @@ public class backGround : MonoBehaviour
 {
     public float length = 45;
     public float startPos;
+    public float position;
+    public float speed;
+    public Rigidbody2D rb;
 
-    public GameObject camera;
-    public float ParallaxEffext;
+    public GameObject player;
     // Start is called before the first frame update
     void Start()
     {
-        startPos = transform.position.x;
-        
+        position = startPos;
+        rb = gameObject.GetComponent<Rigidbody2D>();
+ 
     }
 
     // Update is called once per frame
     void Update()
     {
-        float temp = camera.transform.position.x * (1 - ParallaxEffext);
-        float distance = camera.transform.position.x * ParallaxEffext;
-
-        transform.position = new Vector3(startPos + distance, transform.position.y, transform.position.z);
-        if (temp > startPos + length)
+        rb.velocity = new Vector2(-1f, 0) * speed;
+        position -= speed*Time.deltaTime;
+        if (position <= (player.transform.position.x - 75))
         {
-            startPos += length;
+            transform.position = new Vector3(player.transform.position.x + 75,0,0);
+            position = player.transform.position.x + 75;
         }
-        else if (temp < startPos - length)
+        else if (position >= (player.transform.position.x + 75))
         {
-            startPos -= length;
+            transform.position = new Vector3(player.transform.position.x - 75, 0, 0);
+            position = player.transform.position.x - 75;
         }
     }
 }

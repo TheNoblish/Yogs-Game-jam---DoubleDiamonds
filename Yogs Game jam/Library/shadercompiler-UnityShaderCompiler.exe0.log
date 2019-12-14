@@ -1,5 +1,6 @@
 Base path: 'D:/editors/2019.2.15f1/Editor/Data', plugins path 'D:/editors/2019.2.15f1/Editor/Data/PlaybackEngines'
 Cmd: initializeCompiler
+<<<<<<< Updated upstream
 Cmd: preprocess
   insize=3369 outsize=1219 ok=1
 Cmd: preprocess
@@ -11,3 +12,5 @@ Cmd: preprocess
   insize=1075 outsize=1141 ok=1
 Cmd: preprocess
   insize=3114 outsize=1176 ok=1
+=======
+>>>>>>> Stashed changes

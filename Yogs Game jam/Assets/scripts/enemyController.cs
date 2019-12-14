@@ -38,7 +38,9 @@ public class enemyController : MonoBehaviour
             passive = true;
             if (gotPackage)
             {
-                package.SetActive(true);
+                //package.SetActive(true);
+                package.GetComponent<SpriteRenderer>().enabled = true;
+                package.GetComponent<BoxCollider2D>().enabled = true;
                 package.transform.position = new Vector3(transform.position.x, transform.position.y+2, transform.position.z);
             }
         }
@@ -106,7 +108,9 @@ public class enemyController : MonoBehaviour
        if (other.gameObject.tag == "Package" && !passive)
         {
             gotPackage = true;
-            other.gameObject.SetActive(false);
+            //other.gameObject.SetActive(false);
+            other.gameObject.GetComponent<SpriteRenderer>().enabled = false;
+            other.gameObject.GetComponent<BoxCollider2D>().enabled = false;
             runFrom = transform.position;
         }
     }

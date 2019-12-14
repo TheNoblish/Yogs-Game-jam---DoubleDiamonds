@@ -70,6 +70,7 @@
      <Compile Include="Assets\Scripts\PlayerController.cs" />
      <Compile Include="Assets\Scripts\PlayGame.cs" />
      <Compile Include="Assets\Scripts\snowballs.cs" />
+     <Compile Include="Assets\Scripts\stars.cs" />
      <Compile Include="Assets\Scripts\throwStuff.cs" />
      <Compile Include="Assets\Scripts\Volume.cs" />
      <None Include="Assets\Unity-BitmapFontImporter-3.0.0\Shaders\Font2.shader" />

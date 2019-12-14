@@ -118,6 +118,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6e335df6988eb8498b24facac91839d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  package: {fileID: 0}
   targetingPlayer: 0
   runningFromPlayer: 0
   gotPackage: 0
