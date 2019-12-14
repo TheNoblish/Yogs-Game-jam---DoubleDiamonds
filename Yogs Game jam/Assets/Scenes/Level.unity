@@ -252,7 +252,7 @@ MonoBehaviour:
   position: 0
   speed: 1
   rb: {fileID: 0}
-  player: {fileID: 0}
+  player: {fileID: 193353682}
 --- !u!50 &126936603
 Rigidbody2D:
   serializedVersion: 4
@@ -434,6 +434,12 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &193353682 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6567853906386140953, guid: 12f6a082cdbd0cd428d9a0f0a0074ef3,
+    type: 3}
+  m_PrefabInstance: {fileID: 8015789098761495958}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &215294684
 GameObject:
   m_ObjectHideFlags: 0
@@ -907,7 +913,7 @@ MonoBehaviour:
   position: 0
   speed: 0.5
   rb: {fileID: 0}
-  player: {fileID: 0}
+  player: {fileID: 193353682}
 --- !u!1 &372086060
 GameObject:
   m_ObjectHideFlags: 0
@@ -1141,7 +1147,7 @@ MonoBehaviour:
   position: 0
   speed: 0.5
   rb: {fileID: 0}
-  player: {fileID: 0}
+  player: {fileID: 193353682}
 --- !u!1 &464909478
 GameObject:
   m_ObjectHideFlags: 0
@@ -1529,7 +1535,7 @@ MonoBehaviour:
   position: 0
   speed: 1
   rb: {fileID: 0}
-  player: {fileID: 0}
+  player: {fileID: 193353682}
 --- !u!1 &626918031
 GameObject:
   m_ObjectHideFlags: 0
@@ -2152,7 +2158,7 @@ MonoBehaviour:
   position: 0
   speed: 1
   rb: {fileID: 0}
-  player: {fileID: 0}
+  player: {fileID: 193353682}
 --- !u!50 &778925580
 Rigidbody2D:
   serializedVersion: 4
@@ -2386,7 +2392,7 @@ MonoBehaviour:
   position: 0
   speed: 0.5
   rb: {fileID: 0}
-  player: {fileID: 0}
+  player: {fileID: 193353682}
 --- !u!50 &857920609
 Rigidbody2D:
   serializedVersion: 4
@@ -2940,7 +2946,7 @@ MonoBehaviour:
   position: 0
   speed: 0.5
   rb: {fileID: 0}
-  player: {fileID: 0}
+  player: {fileID: 193353682}
 --- !u!50 &1105633598
 Rigidbody2D:
   serializedVersion: 4
@@ -3014,7 +3020,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b6813bdbf42fd0428f9cfd2b1ad0449, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 193353682}
 --- !u!1 &1124463851 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6988531555273598424, guid: 16f0e031ddd7c1f429e0ca68e819e3e8,
@@ -3153,7 +3159,7 @@ MonoBehaviour:
   position: 0
   speed: 1
   rb: {fileID: 0}
-  player: {fileID: 0}
+  player: {fileID: 193353682}
 --- !u!50 &1143281938
 Rigidbody2D:
   serializedVersion: 4
@@ -3248,7 +3254,7 @@ MonoBehaviour:
   position: 0
   speed: 1
   rb: {fileID: 0}
-  player: {fileID: 0}
+  player: {fileID: 193353682}
 --- !u!1 &1170930987
 GameObject:
   m_ObjectHideFlags: 0
@@ -3861,7 +3867,7 @@ MonoBehaviour:
   position: 0
   speed: 0.5
   rb: {fileID: 0}
-  player: {fileID: 0}
+  player: {fileID: 193353682}
 --- !u!50 &1646696270
 Rigidbody2D:
   serializedVersion: 4
