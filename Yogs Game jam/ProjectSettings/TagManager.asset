@@ -3,15 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - Package
-<<<<<<< HEAD
-  - Enemy
-  - enemyBoundary
-=======
-  - enemyBoundary
-  - NPC
->>>>>>> master
+  tags: []
   layers:
   - Default
   - TransparentFX
@@ -21,17 +13,10 @@ TagManager:
   - UI
   - 
   - 
-<<<<<<< HEAD
-  - Floor
-  - Package
-  - Enemy
-  - EnemyDetector
-=======
   - 
   - 
   - 
   - 
->>>>>>> master
   - 
   - 
   - 
