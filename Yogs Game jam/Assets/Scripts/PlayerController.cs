@@ -63,13 +63,6 @@ public class PlayerController : MonoBehaviour
     {
         if (other.CompareTag("Package"))
             onPackage = true;
-
-        if (other.CompareTag("NPC"))
-        {
-            //rigidbody2d.constraints = RigidbodyConstraints2D.FreezePositionX;
-            other.GetComponent<NPCManager>().startDialogue();
-        }
-
     }
 
     //stop being allowed to pickup when leaving the package

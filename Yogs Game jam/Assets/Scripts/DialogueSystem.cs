@@ -5,8 +5,9 @@ using UnityEngine.UI;
 
 public class DialogueSystem : MonoBehaviour
 {
-    public GameObject dialogueBox;
-    Animator dialogueAnimator;
+
+    GameObject player;
+    Rigidbody2D rigidbody2D;
 
     public float dialogueSpeed = 0.2f;
 
@@ -22,7 +23,9 @@ public class DialogueSystem : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        dialogueAnimator = dialogueBox.GetComponent<Animator>();
+        player = GameObject.Find("Player");
+        rigidbody2D = player.GetComponent<Rigidbody2D>();
+
     }
 
     // Update is called once per frame
@@ -31,31 +34,39 @@ public class DialogueSystem : MonoBehaviour
         //If the currently displayed text is the complete line
         if (dialogueDisplay.text == dialogueArray[index])
         {
-           //Proceed to the next line of dialogue
-           nextDialogue();
+            //And the player presses space...
+            if (Input.GetKeyDown("space"))
+            {
+                //Proceed to the next line of dialogue
+                nextDialogue();
+            }
+
+        //If the currently displayed text is NOT the complete line
+        } else
+        {
+            //And the player presses space...
+            if (Input.GetKeyDown("space"))
+            {
+                //Fill in the rest of the line of dialogue
+                skipDialogue();
+            }
         }
-          
+
+        if (isTalking)
+        {
+            player.GetComponent<PlayerController>().enabled = false;
+            rigidbody2D.constraints = RigidbodyConstraints2D.FreezePosition;
+        }
+
     }
 
     IEnumerator Type()
     {
-        yield return new WaitForSeconds(0.5f);
-        foreach (char letter in dialogueArray[index].ToCharArray())
+        foreach(char letter in dialogueArray[index].ToCharArray())
         {
             dialogueDisplay.text += letter;
             yield return new WaitForSeconds(dialogueSpeed);
         }
-    }
-
-    IEnumerator Fade()
-    {
-        dialogueAnimator.SetBool("FadeInDialogue", false);
-        dialogueAnimator.SetBool("FadeOutDialogue", true);
-        yield return new WaitForSeconds(0.5f);
-        isTalking = false;
-        index = 0;
-        dialogueDisplay.text = "";
-        dialogueName.text = "";
     }
 
     public void nextDialogue()
@@ -67,7 +78,10 @@ public class DialogueSystem : MonoBehaviour
             typingCoroutine = StartCoroutine(Type());
         } else
         {
-            StartCoroutine(Fade());
+            dialogueDisplay.text = "";
+            dialogueName.text = "";
+            index = 0;
+            isTalking = false;
         }
     }
 
@@ -86,11 +100,9 @@ public class DialogueSystem : MonoBehaviour
     {
         if (!isTalking)
         {
-            dialogueName.text = name;
-            dialogueAnimator.SetBool("FadeInDialogue", true);
-            dialogueAnimator.SetBool("FadeOutDialogue", false);
             isTalking = true;
             index = 0;
+            dialogueName.text = name;
             dialogueDisplay.text = "";
             dialogueArray = npcDialogue;
             typingCoroutine = StartCoroutine(Type());
