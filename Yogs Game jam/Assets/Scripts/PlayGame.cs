@@ -20,6 +20,6 @@ public class PlayGame : MonoBehaviour
     //Load scene function takes scene index as a parameter and loads that scene
     public void LoadScene(int index)
     {
-        //SceneManager.LoadScene(index);
+        SceneManager.LoadScene(index);
     }
 }

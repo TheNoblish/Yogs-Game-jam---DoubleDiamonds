@@ -65,6 +65,7 @@
     <Compile Include="Assets\Scripts\ButtonHover.cs" />
     <Compile Include="Assets\Scripts\ButtonSounds.cs" />
     <Compile Include="Assets\Scripts\ChangeResolution.cs" />
+    <Compile Include="Assets\Scripts\CrateController.cs" />
     <Compile Include="Assets\Scripts\DialogueSystem.cs" />
     <Compile Include="Assets\Scripts\enemyController.cs" />
     <Compile Include="Assets\Scripts\ExitGame.cs" />
