@@ -8,9 +8,7 @@ public class PlayerController : MonoBehaviour
     Rigidbody2D rigidbody2d;
     SpriteRenderer spriteRenderer;
 
-    AudioSource audioSource;
-    [SerializeField] private AudioClip[] m_FootstepSounds;
-
+    bool isMoving;
     bool isJumping;
     public static bool isCarrying;
     bool onPackage;
@@ -21,13 +19,13 @@ public class PlayerController : MonoBehaviour
     public GameObject package;
     public  float currentSpeed;
     private float currentJumpHeight;
+    public float stepInterval = 5f;
 
     public GameObject currentEnemy;
 
     // Start is called before the first frame update
     void Start()
     {
-        audioSource = GetComponent<AudioSource>();
         isCarrying = true;
         animator = GetComponent<Animator>();
         rigidbody2d = GetComponent<Rigidbody2D>();
@@ -37,6 +35,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if (onPackage)
         {
             // pickup the package
@@ -127,7 +126,7 @@ public class PlayerController : MonoBehaviour
         //If the player presses A or LEFT ARROW KEY
         if (Input.GetKey("a") || Input.GetKey("left"))
         {
-            Footsteps();
+            isMoving = true;
             spriteRenderer.flipX = false;
             animator.SetBool("isRunning", true);
             animator.SetBool("isFacingRight", false);
@@ -142,7 +141,7 @@ public class PlayerController : MonoBehaviour
         //Else if the player presses D or RIGHT ARROW KEY
         else if (Input.GetKey("d") || Input.GetKey("right"))
         {
-            Footsteps();
+            isMoving = true;
             spriteRenderer.flipX = true;
             animator.SetBool("isRunning", true);
             animator.SetBool("isFacingRight", true);
@@ -156,6 +155,7 @@ public class PlayerController : MonoBehaviour
         //Else (when the player is not moving left or right)
         else
         {
+            isMoving = false;
             animator.SetBool("isRunning", false);
             animator.SetBool("isFacingRight", true);
             //We set the velocity of x to 0 so the player isn't slip sliding around
@@ -185,22 +185,4 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void Footsteps()
-    {
-        if (!isJumping)
-        {
-            return;
-        }
-
-        StartCoroutine(PlayFootsteps());
-    }
-
-    IEnumerator PlayFootsteps()
-    {
-        int n = Random.Range(1, m_FootstepSounds.Length);
-        audioSource.clip = m_FootstepSounds[n];
-        audioSource.PlayOneShot(audioSource.clip);
-        m_FootstepSounds[n] = m_FootstepSounds[0];
-        m_FootstepSounds[0] = audioSource.clip;
-    }
 }
