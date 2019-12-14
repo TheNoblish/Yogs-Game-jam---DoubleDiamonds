@@ -4,11 +4,10 @@ using UnityEngine;
 
 public class levelBuilder : MonoBehaviour
 {
-    public GameObject[] Tiles;
-    public GameObject groundEnemy;
-    public Texture2D startRoom;
-    public Texture2D endRoom;
-    public Texture2D[] rooms;
+    
+    public GameObject startRoom;
+    public GameObject endRoom;
+    public GameObject[] rooms;
     public int levelLength;
   
 
@@ -23,45 +22,26 @@ public class levelBuilder : MonoBehaviour
     
     public void setupLevel()
     {
+        // create a number of cells based on the levelLength variable
         for (int x = 0; x <= levelLength; x++)
         {
-            if ( x == 0)
+            // create starting cell
+            if ( x == 0) 
             {
-                placeRoom(startRoom, new Vector3(0 + (x*10), 0f, 0f));
+                GameObject instance = Instantiate(startRoom, new Vector3(0 + (x * 20), 0f, 0f), Quaternion.identity) as GameObject;
             }
+            // create the last cell
             else if (x == levelLength)
             {
-                placeRoom(endRoom, new Vector3(0 + (x * 10), 0f, 0f));
+                GameObject instance = Instantiate(endRoom, new Vector3(0 + (x * 20), 0f, 0f), Quaternion.identity) as GameObject;
             }
+            // put down a random cell if there shouldnt be anythign specific 
             else
             {
-                placeRoom(rooms[Random.Range(0,rooms.Length)], new Vector3(0 + (x * 10), 0f, 0f));
+                GameObject instance = Instantiate(rooms[Random.Range(0,rooms.Length)], new Vector3(0 + (x * 20), 0f, 0f), Quaternion.identity) as GameObject;
             }
 
         }
     }
 
-    public void placeRoom(Texture2D room, Vector3 position)
-    {
-        int height = room.height;
-        int width = room.width;
-
-        for (int y = 0; y < height; y++)
-        {
-            for (int x = 0; x < width; x++)
-            {
-                if (room.GetPixel(x, y) == Color.black)
-                {
-                    GameObject instance = Instantiate(Tiles[Random.Range(0, Tiles.Length)], new Vector3(position.x + x, position.y + y, 0f), Quaternion.identity) as GameObject;
-                }
-                else if (room.GetPixel(x, y) == Color.red)
-                {
-                    GameObject instance = Instantiate(groundEnemy, new Vector3(position.x + x, position.y + y, 0f), Quaternion.identity) as GameObject;
-                }
-
-            }
-
-
-        }
-    }
 }
