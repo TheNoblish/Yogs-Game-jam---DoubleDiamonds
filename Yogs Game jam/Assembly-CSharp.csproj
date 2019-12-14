@@ -76,6 +76,7 @@
     <Compile Include="Assets\Scripts\throwStuff.cs" />
     <Compile Include="Assets\Scripts\Volume.cs" />
     <None Include="Assets\Unity-BitmapFontImporter-3.0.0\Shaders\Font2.shader" />
+    <None Include="Assets\bitmap-font-export.fnt" />
     <None Include="Assets\Unity-BitmapFontImporter-3.0.0\Shaders\BFILogic.cginc" />
     <None Include="Assets\Unity-BitmapFontImporter-3.0.0\Shaders\Font4.shader" />
     <None Include="Assets\Unity-BitmapFontImporter-3.0.0\Shaders\Font5.shader" />
