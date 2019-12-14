@@ -5,11 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Package
-<<<<<<< HEAD
-  - Enemy
   - enemyBoundary
-=======
->>>>>>> master
+  - NPC
   layers:
   - Default
   - TransparentFX
@@ -19,7 +16,7 @@ TagManager:
   - UI
   - 
   - 
-  - Floor
+  - 
   - 
   - 
   - 
@@ -46,7 +43,4 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: 
-    uniqueID: 1635730099
     locked: 0

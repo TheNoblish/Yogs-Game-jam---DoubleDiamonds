@@ -9,14 +9,17 @@ public class PlayerController : MonoBehaviour
     SpriteRenderer spriteRenderer;
 
     bool isJumping;
-    bool isCarrying;
+    public static bool isCarrying;
     bool onPackage;
+    public bool canPet;
     public float speed = 5;
     public float jumpHeight = 5;
     public Transform jumpChecker;
     public GameObject package;
     public  float currentSpeed;
     private float currentJumpHeight;
+
+    public GameObject currentEnemy;
 
     // Start is called before the first frame update
     void Start()
@@ -73,6 +76,12 @@ public class PlayerController : MonoBehaviour
         {
             canPet = true;
             currentEnemy = other.gameObject.transform.parent.gameObject;
+        }
+
+        if (other.CompareTag("NPC"))
+        {
+            //rigidbody2d.constraints = RigidbodyConstraints2D.FreezePositionX;
+            other.GetComponent<NPCManager>().startDialogue();
         }
     }
 
