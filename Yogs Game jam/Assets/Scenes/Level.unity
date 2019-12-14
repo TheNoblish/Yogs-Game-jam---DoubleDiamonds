@@ -270,6 +270,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 748378201, guid: 0a76b5759e55112409f23551ba0b3663, type: 3}
+      propertyPath: maxThrowForce
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 748378201, guid: 0a76b5759e55112409f23551ba0b3663, type: 3}
+      propertyPath: throwSpeed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 748378201, guid: 0a76b5759e55112409f23551ba0b3663, type: 3}
+      propertyPath: cam
+      value: 
+      objectReference: {fileID: 1033822956}
     - target: {fileID: 3753884305755292355, guid: 0a76b5759e55112409f23551ba0b3663,
         type: 3}
       propertyPath: package
@@ -337,6 +349,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0a76b5759e55112409f23551ba0b3663, type: 3}
+--- !u!20 &1033822956 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 3753884306277973018, guid: 0a76b5759e55112409f23551ba0b3663,
+    type: 3}
+  m_PrefabInstance: {fileID: 748378199}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1124463851 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6988531555273598424, guid: 16f0e031ddd7c1f429e0ca68e819e3e8,

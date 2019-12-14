@@ -9,6 +9,7 @@ public class throwStuff : MonoBehaviour
     public float maxThrowForce;
     public float throwSpeed;
     public float throwForce;
+    public Camera cam;
     private bool thrown;
 
     // Start is called before the first frame update
@@ -48,8 +49,8 @@ public class throwStuff : MonoBehaviour
 
         GameObject ball = Instantiate(snowball, transform.position, transform.rotation) as GameObject;
 
-        ball.GetComponent<Rigidbody2D>().velocity = new Vector3(1*throwForce,0f,0f);
-
+        //ball.GetComponent<Rigidbody2D>().velocity = new Vector3(1*throwForce,0f,0f);
+        ball.GetComponent<Rigidbody2D>().velocity = (cam.ScreenToWorldPoint(Input.mousePosition) - transform.position) * throwForce;
         throwForce = minThrowForce;
     }
 }
