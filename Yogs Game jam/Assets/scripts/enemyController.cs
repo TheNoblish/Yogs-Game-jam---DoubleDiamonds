@@ -7,7 +7,7 @@ public class enemyController : MonoBehaviour
 
     Animator animator;
     private GameObject player;
-    private GameObject package;
+    public GameObject package;
     private Rigidbody2D rb;
     private int direction;
     private Vector2 runFrom;
@@ -31,6 +31,7 @@ public class enemyController : MonoBehaviour
 
     void Update()
     {
+        package = GameObject.FindGameObjectWithTag("Package");
         // if petted enough become passive and drop package
         if (pets > 200 && !passive)
         {
@@ -48,7 +49,7 @@ public class enemyController : MonoBehaviour
             targetingPackage = false;
 
             // start targeting the player if they get too close
-            if (Vector3.Distance(player.transform.position, transform.position) < 3)
+            if (Vector3.Distance(player.transform.position, transform.position) < 5)
             {
                 targetingPlayer = true;
             }
@@ -105,7 +106,7 @@ public class enemyController : MonoBehaviour
        if (other.gameObject.tag == "Package" && !passive)
         {
             gotPackage = true;
-            package.SetActive(false);
+            other.gameObject.SetActive(false);
             runFrom = transform.position;
         }
     }
