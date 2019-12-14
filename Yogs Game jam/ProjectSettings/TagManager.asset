@@ -8,6 +8,8 @@ TagManager:
   - enemyBoundary
   - NPC
   - Enemy
+  - gull
+  - nest
   layers:
   - Default
   - TransparentFX
@@ -20,9 +22,9 @@ TagManager:
   - Floor
   - package
   - enemy
-  - 
-  - 
-  - 
+  - gull
+  - nest
+  - nestFloor
   - 
   - 
   - 
