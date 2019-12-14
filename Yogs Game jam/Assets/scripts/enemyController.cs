@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class enemyController : MonoBehaviour
 {
+
+    Animator animator;
     private GameObject player;
     private GameObject package;
     private Rigidbody2D rb;
@@ -21,6 +23,7 @@ public class enemyController : MonoBehaviour
     void Start()
     {
         // set up references
+        animator = GetComponent<Animator>();
         player = GameObject.FindGameObjectWithTag("Player");
         package = GameObject.FindGameObjectWithTag("Package");
         rb = gameObject.GetComponent<Rigidbody2D>();
@@ -152,6 +155,20 @@ public class enemyController : MonoBehaviour
 
             // move
             rb.velocity = new Vector2(direction * movementSpeed, rb.velocity.y);
+        }
+        // start running
+        animator.SetFloat("speed", Mathf.Abs(rb.velocity.x));
+        // flip sprites
+        Vector3 scale = transform.localScale;
+        if (direction == 1)
+        {
+            scale.x = -1;
+            transform.localScale = scale;
+        }
+        else
+        {
+            scale.x = 1;
+            transform.localScale = scale;
         }
     }
 }
