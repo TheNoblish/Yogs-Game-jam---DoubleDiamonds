@@ -76,12 +76,12 @@ public class PlayerController : MonoBehaviour
         if (other.CompareTag("Package"))
             onPackage = true;
         // allow petting and set specific enemy being petted
-        if (other.name == "groundEnemy")
+        if (other.CompareTag("Enemy"))
         {
             canPet = true;
             currentEnemy = other.gameObject;
         }
-        else if (other.name == "enemyArea")
+        else if (other.CompareTag("enemyBoundary"))
         {
             canPet = true;
             currentEnemy = other.gameObject.transform.parent.gameObject;

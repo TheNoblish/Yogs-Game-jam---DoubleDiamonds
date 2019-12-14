@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Package
   - Enemy
+  - enemyBoundary
   layers:
   - Default
   - TransparentFX
