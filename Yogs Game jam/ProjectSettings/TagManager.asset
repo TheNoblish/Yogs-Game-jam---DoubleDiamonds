@@ -5,8 +5,11 @@ TagManager:
   serializedVersion: 2
   tags:
   - Package
+<<<<<<< HEAD
   - Enemy
   - enemyBoundary
+=======
+>>>>>>> master
   layers:
   - Default
   - TransparentFX
@@ -17,9 +20,9 @@ TagManager:
   - 
   - 
   - Floor
-  - Package
-  - Enemy
-  - EnemyDetector
+  - 
+  - 
+  - 
   - 
   - 
   - 
