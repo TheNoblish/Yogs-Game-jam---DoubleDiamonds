@@ -61,10 +61,15 @@ public class PlayerController : MonoBehaviour
         {
             if (Input.GetKey("s") || Input.GetKey("down"))
             {
+                animator.SetBool("isPetting", true);
                 Debug.Log("pet");
                 currentEnemy.GetComponent<enemyController>().pets++;
             }
+            else
+                animator.SetBool("isPetting", false);
         }
+        else
+            animator.SetBool("isPetting", false);
 
         // change speed while carrying and allow dropping the package
         if (isCarrying)
