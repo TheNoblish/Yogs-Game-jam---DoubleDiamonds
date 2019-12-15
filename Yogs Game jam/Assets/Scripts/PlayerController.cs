@@ -12,6 +12,9 @@ public class PlayerController : MonoBehaviour
     public Text coinCounter;
     private GameObject coinHandler;
 
+    float inputVertical;
+
+    bool isClimbing;
     bool isMoving;
     public bool isJumping;
     public static bool isCarrying;
@@ -24,6 +27,9 @@ public class PlayerController : MonoBehaviour
     public  float currentSpeed;
     private float currentJumpHeight;
     public float stepInterval = 5f;
+
+    public LayerMask ladder;
+    public float raycastDistance;
 
     public GameObject currentEnemy;
 
@@ -83,6 +89,7 @@ public class PlayerController : MonoBehaviour
         }
 
     }
+
 
     // allow player to pikcup while on the package
     void OnTriggerEnter2D(Collider2D other)
@@ -198,6 +205,29 @@ public class PlayerController : MonoBehaviour
             //rigidbody2d.velocity = new Vector2(rigidbody2d.velocity.x, jumpHeight);
             gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, jumpHeight), ForceMode2D.Impulse);
             //jumping animation
+        }
+
+        RaycastHit2D raycastHit2D = Physics2D.Raycast(transform.position, Vector2.up, raycastDistance, ladder);
+
+        if (raycastHit2D.collider != null)
+        {
+            if (Input.GetKeyDown("w") || Input.GetKeyDown(KeyCode.UpArrow))
+            {
+                isClimbing = true;
+            }
+        } else
+        {
+            isClimbing = false;
+        }
+
+        if (isClimbing == true && raycastHit2D.collider != null)
+        {
+            inputVertical = Input.GetAxisRaw("Vertical");
+            rigidbody2d.velocity = new Vector2(rigidbody2d.velocity.x, inputVertical * speed);
+            rigidbody2d.gravityScale = 0;
+        } else
+        {
+            rigidbody2d.gravityScale = 5;
         }
     }
 

@@ -26,8 +26,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 386631380}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.87, y: 2.65, z: 0}
-  m_LocalScale: {x: 600, y: 1, z: 1}
+  m_LocalPosition: {x: -1.87, y: 2.65, z: 10}
+  m_LocalScale: {x: 1200, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 6567853906386140957}
   m_RootOrder: 3
@@ -302,12 +302,16 @@ MonoBehaviour:
   coinCounter: {fileID: 0}
   isJumping: 0
   canPet: 0
-  speed: 5
-  jumpHeight: 5
+  speed: 10
+  jumpHeight: 10
   jumpChecker: {fileID: 6567853906481067524}
   package: {fileID: 0}
   currentSpeed: 0
   stepInterval: 5
+  ladder:
+    serializedVersion: 2
+    m_Bits: 65536
+  raycastDistance: 5
   currentEnemy: {fileID: 0}
 --- !u!95 &6567853906386140931
 Animator:

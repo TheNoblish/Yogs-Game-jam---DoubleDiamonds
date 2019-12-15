@@ -83,6 +83,7 @@
     <Compile Include="Assets\Scripts\snowballs.cs" />
     <Compile Include="Assets\Scripts\stars.cs" />
     <Compile Include="Assets\Scripts\throwStuff.cs" />
+    <Compile Include="Assets\Scripts\VerticalPlatform.cs" />
     <Compile Include="Assets\Scripts\Volume.cs" />
     <None Include="Assets\Unity-BitmapFontImporter-3.0.0\Shaders\Font2.shader" />
     <None Include="Assets\bitmap-font-export.fnt" />
