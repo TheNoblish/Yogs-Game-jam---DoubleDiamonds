@@ -110,7 +110,7 @@ public class PlayerController : MonoBehaviour
             gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, currentJumpHeight), ForceMode2D.Impulse);
             doubleJumped = true;
         }
-        if (isJumping)
+        if (isJumping && !isClimbing)
         {
             animator.SetBool("isJumping", true);
         }

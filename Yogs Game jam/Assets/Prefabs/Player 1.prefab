@@ -323,6 +323,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coinCounter: {fileID: 0}
+  doubleJumped: 0
   isJumping: 0
   canPet: 0
   speed: 10
@@ -370,7 +371,7 @@ MonoBehaviour:
   snowball: {fileID: 3270890944839899458, guid: 16a7ab161b7a8ee419e6e90fc38c0eeb,
     type: 3}
   minThrowForce: 0
-  maxThrowForce: 10
+  maxThrowForce: 3
   throwSpeed: 2
   throwForce: 0
   cam: {fileID: 6567853905888625115}
