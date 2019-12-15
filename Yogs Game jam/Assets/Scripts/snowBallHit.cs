@@ -4,6 +4,28 @@ using UnityEngine;
 
 public class snowBallHit : MonoBehaviour
 {
+    [SerializeField]
+    private AudioClip[] clips;
+
+    private AudioSource audioSource;
+
+    private void Awake()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
+
+    private void Step()
+    {
+        Debug.Log("test");
+        AudioClip audioClip = GetRandomClip();
+        audioSource.PlayOneShot(audioClip);
+    }
+
+    private AudioClip GetRandomClip()
+    {
+        return clips[UnityEngine.Random.Range(0, clips.Length)];
+    }
+
     GameObject package;
     // Start is called before the first frame update
     void Start()
@@ -18,6 +40,7 @@ public class snowBallHit : MonoBehaviour
     }
     void OnCollisionEnter2D(Collision2D other)
     {
+        Step();
         if (other.gameObject.CompareTag("gull"))
         {
             if (other.gameObject.GetComponent<FlyingEnemy>().gotPackage)
@@ -34,6 +57,12 @@ public class snowBallHit : MonoBehaviour
             other.gameObject.GetComponent<CircleCollider2D>().enabled = false;
         }*/
 
+        StartCoroutine(DestroySnowball());
+    }
+
+    IEnumerator DestroySnowball()
+    {
+        yield return new WaitForSeconds(3f);
         Destroy(gameObject);
     }
 }
