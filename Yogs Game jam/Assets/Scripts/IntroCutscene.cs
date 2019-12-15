@@ -15,7 +15,7 @@ public class IntroCutscene : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        player.GetComponent<Rigidbody2D>().isKinematic = false;
+        player.GetComponent<Rigidbody2D>().isKinematic = true;
         player.GetComponent<PlayerController>().enabled = false;
         dialogueManager = GameObject.Find("Dialogue Manager");
         player = GameObject.Find("Player");
@@ -38,7 +38,7 @@ public class IntroCutscene : MonoBehaviour
         npc.GetComponent<NPCManager>().enabled = true;
         npc.GetComponent<NPCManager>().startDialogue();
         yield return new WaitForSeconds(10f);
-        player.GetComponent<Rigidbody2D>().isKinematic = true;
+        player.GetComponent<Rigidbody2D>().isKinematic = false;
         player.GetComponent<PlayerController>().enabled = true;
     }
 
