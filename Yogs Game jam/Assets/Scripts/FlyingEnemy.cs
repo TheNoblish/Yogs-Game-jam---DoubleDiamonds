@@ -9,7 +9,8 @@ public class FlyingEnemy : MonoBehaviour
 
     GameObject player;
     public GameObject package;
-    bool returned = true;
+    public bool returned = true;
+    public bool delivery;
     Rigidbody2D rigidbody2D;
     int patrolDirection = -1;
 
@@ -44,6 +45,12 @@ public class FlyingEnemy : MonoBehaviour
 
             animator.SetBool("isDiving", true);
             transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
+            if (player.transform.position.x > transform.position.x)
+            {
+                rigidbody2D.velocity = new Vector2(1.5f * 1f, rigidbody2D.velocity.y);
+            }
+            else
+                rigidbody2D.velocity = new Vector2(1.5f * -1f, rigidbody2D.velocity.y);
         }
         else if (isGrabbing)
         {
@@ -63,6 +70,7 @@ public class FlyingEnemy : MonoBehaviour
         {
             patrolDirection = -1;
             returned = false;
+            delivery = false;
         }
         else if (Mathf.Abs(nest.position.x - transform.position.x) < 5)
             patrolDirection = 1;
@@ -102,7 +110,14 @@ public class FlyingEnemy : MonoBehaviour
         {
             animator.SetBool("hasBox", false);
         }
-
+        if (!PlayerController.isCarrying)
+        {
+            isAttacking = false;
+        }
+        if (!isAttacking && !isGrabbing)
+        {
+            animator.SetBool("isDiving", false);
+        }
         //Debug.Log(rigidbody2D.velocity.x);
         //transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
     }
@@ -114,13 +129,13 @@ public class FlyingEnemy : MonoBehaviour
             speed = 5;
             Debug.Log("test");
             isAttacking = true;
-            gameObject.transform.Rotate(0, 0, 35);
+            //gameObject.transform.Rotate(0, 0, 35);
         }
-        if (other.CompareTag("Package") && !isAttacking  && !isGrabbing && !gotPackage && Mathf.Abs(package.transform.position.y -transform.position.y) > 1)
+        if (other.CompareTag("Package") && !isAttacking  && !isGrabbing && !gotPackage && Mathf.Abs(package.transform.position.y -transform.position.y) > 1 && !delivery)
         {
             speed = 5;
             isGrabbing = true;
-            gameObject.transform.Rotate(0, 0, 35);
+            //gameObject.transform.Rotate(0, 0, 35);
             Debug.Log("grabbing!");
         }
     }
@@ -132,7 +147,7 @@ public class FlyingEnemy : MonoBehaviour
             animator.SetBool("isDiving", false);
             PlayerController.isCarrying = false;
             isAttacking = false;
-            gameObject.transform.Rotate(0, 0, -35);
+            //gameObject.transform.Rotate(0, 0, -35);
         }
         if (other.gameObject.CompareTag("nest") && gotPackage)
         {
@@ -142,6 +157,7 @@ public class FlyingEnemy : MonoBehaviour
             package.GetComponent<SpriteRenderer>().enabled = true;
             package.GetComponent<BoxCollider2D>().enabled = true;
             package.GetComponent<Rigidbody2D>().velocity = new Vector3(0, 0, 0);
+            delivery = true;
         }
         if (other.gameObject.CompareTag("Package"))
         {
@@ -150,7 +166,7 @@ public class FlyingEnemy : MonoBehaviour
             animator.SetBool("isDiving", false);
             other.gameObject.GetComponent<SpriteRenderer>().enabled = false;
             other.gameObject.GetComponent<BoxCollider2D>().enabled = false;
-            gameObject.transform.Rotate(0, 0, -35);
+            //gameObject.transform.Rotate(0, 0, -35);
             
         }
     }
