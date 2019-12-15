@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_PixelRect:
     serializedVersion: 2
-    x: 7.2000003
-    y: 50.4
-    width: 1521.6
-    height: 766.4
+    x: 0
+    y: 43
+    width: 2560
+    height: 997
   m_ShowMode: 4
   m_Title: 
   m_RootView: {fileID: 4}
@@ -493,7 +493,8 @@ MonoBehaviour:
   m_LastFolders:
   - Assets/Tiles/New Folder
   m_LastFoldersGridSize: -1
-  m_LastProjectPath: D:\Yogs Game Jam\Yogs-Game-jam---DoubleDiamonds\Yogs Game jam
+  m_LastProjectPath: D:\Documents\GitHub\Yogs-Game-jam---DoubleDiamonds\Yogs Game
+    jam
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
