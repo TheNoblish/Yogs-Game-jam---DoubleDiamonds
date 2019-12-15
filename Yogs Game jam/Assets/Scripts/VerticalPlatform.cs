@@ -18,9 +18,11 @@ public class VerticalPlatform : MonoBehaviour
         if (Input.GetKeyDown("s") || Input.GetKeyDown(KeyCode.DownArrow))
         {
             effector2D.rotationalOffset = 180f;
-        } else
-        {
+        }
 
+        if (Input.GetKeyDown("w") || Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            effector2D.rotationalOffset = 0;
         }
     }
 }

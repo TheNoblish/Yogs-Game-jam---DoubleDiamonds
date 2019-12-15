@@ -214,6 +214,7 @@ public class PlayerController : MonoBehaviour
             if (Input.GetKeyDown("w") || Input.GetKeyDown(KeyCode.UpArrow))
             {
                 isClimbing = true;
+
             }
         } else
         {
@@ -223,11 +224,29 @@ public class PlayerController : MonoBehaviour
         if (isClimbing == true && raycastHit2D.collider != null)
         {
             inputVertical = Input.GetAxisRaw("Vertical");
+
             rigidbody2d.velocity = new Vector2(rigidbody2d.velocity.x, inputVertical * speed);
             rigidbody2d.gravityScale = 0;
         } else
         {
+
             rigidbody2d.gravityScale = 5;
+        }
+
+        float prevSpeed = 1f; 
+
+        if (inputVertical > 0 && isClimbing)
+        {
+            animator.SetBool("isClimbing", true);
+            animator.speed = prevSpeed;
+        } else if (inputVertical <= 0 && isClimbing)
+        {
+            prevSpeed = animator.speed;
+            animator.speed = 0;
+        } else
+        {
+            animator.speed = prevSpeed;
+            animator.SetBool("isClimbing", false);
         }
     }
 
