@@ -125,6 +125,7 @@ public class enemyController : MonoBehaviour
         if (other.gameObject.tag == "snowball")
         {;
             runFrom = new Vector3(transform.position.x-21,transform.position.y,0);
+            rb.velocity = new Vector3(1f,rb.velocity.y,0);
         }
     }
 
