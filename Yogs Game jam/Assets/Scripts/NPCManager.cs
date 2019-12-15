@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class NPCManager : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class NPCManager : MonoBehaviour
     public string name;
 
     bool hasSpoken;
+
+    public int spriteNumber;
 
     GameObject dialogueManager;
 
@@ -27,7 +30,7 @@ public class NPCManager : MonoBehaviour
     {
         if (isFriendly)
         {
-            dialogueManager.GetComponent<DialogueSystem>().startDialogue(name, dialogueArray);
+            dialogueManager.GetComponent<DialogueSystem>().startDialogue(name, dialogueArray, spriteNumber);
         }
     }
 

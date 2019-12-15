@@ -8,6 +8,11 @@ public class DialogueSystem : MonoBehaviour
     public GameObject dialogueBox;
     Animator dialogueAnimator;
 
+    public Image image;
+    public Sprite[] sprites;
+
+   
+
     public float dialogueSpeed = 0.2f;
 
     Coroutine typingCoroutine = null;
@@ -49,6 +54,7 @@ public class DialogueSystem : MonoBehaviour
 
     IEnumerator Fade()
     {
+        yield return new WaitForSeconds(2f);
         dialogueAnimator.SetBool("FadeInDialogue", false);
         dialogueAnimator.SetBool("FadeOutDialogue", true);
         yield return new WaitForSeconds(0.5f);
@@ -63,7 +69,7 @@ public class DialogueSystem : MonoBehaviour
         if (index < dialogueArray.Length - 1)
         {
             index++;
-            dialogueDisplay.text = "";
+            //dialogueDisplay.text = "";
             typingCoroutine = StartCoroutine(Type());
         }
         else
@@ -83,11 +89,12 @@ public class DialogueSystem : MonoBehaviour
 
     }
 
-    public void startDialogue(string name, string[] npcDialogue)
+    public void startDialogue(string name, string[] npcDialogue, int spriteNumber)
     {
         if (!isTalking)
         {
             dialogueName.text = name;
+            image.sprite = sprites[spriteNumber];
             dialogueAnimator.SetBool("FadeInDialogue", true);
             dialogueAnimator.SetBool("FadeOutDialogue", false);
             isTalking = true;
