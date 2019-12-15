@@ -69,7 +69,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -5
+  m_SortingOrder: -6
   m_Sprite: {fileID: 21300000, guid: 82a5f1e0eb38eb04d92c2218b40e3a9a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -192,6 +192,7 @@ GameObject:
   - component: {fileID: 6567853906386140931}
   - component: {fileID: 8015789098761495960}
   - component: {fileID: 426706572}
+  - component: {fileID: 1001138508}
   m_Layer: 0
   m_Name: Player 1
   m_TagString: Player
@@ -254,7 +255,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 90398a65a0ca2234fbbbcd2aca950170, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -303,7 +304,7 @@ MonoBehaviour:
   isJumping: 0
   canPet: 0
   speed: 10
-  jumpHeight: 10
+  jumpHeight: 20
   jumpChecker: {fileID: 6567853906481067524}
   package: {fileID: 0}
   currentSpeed: 0
@@ -500,11 +501,27 @@ PolygonCollider2D:
       - {x: -0.7, y: -3.5649998}
       - {x: -0.29, y: -3.595}
       - {x: -0.29999998, y: -3.665}
-      - {x: -0.22, y: -3.715}
-      - {x: 0.17999999, y: -3.715}
-      - {x: 0.24, y: -3.685}
-      - {x: 0.29, y: -3.625}
+      - {x: -0.21484661, y: -3.6857948}
+      - {x: 0.09925842, y: -3.661744}
+      - {x: 0.17643642, y: -3.636898}
+      - {x: 0.26423073, y: -3.5854874}
       - {x: 0.28, y: -3.5349998}
+--- !u!70 &1001138508
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6567853906386140953}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.19042444, y: -2.819037}
+  m_Size: {x: 0.95405674, y: 1.7919264}
+  m_Direction: 0
 --- !u!1 &6567853906481067527
 GameObject:
   m_ObjectHideFlags: 0

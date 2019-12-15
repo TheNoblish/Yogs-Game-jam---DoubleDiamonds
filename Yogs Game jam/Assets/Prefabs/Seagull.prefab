@@ -163,13 +163,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22552e7da84922842baeef069e65433b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  package: {fileID: 0}
   isAttacking: 0
   isGrabbing: 0
   gotPackage: 0
   speed: 2
   attackRange: 10
   nest: {fileID: 0}
-  nestScript: {fileID: 0}
 --- !u!58 &3817276679099468560
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -183,6 +183,6 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.8235493, y: -3.4347296}
+  m_Offset: {x: -0.34713745, y: -6.293148}
   serializedVersion: 2
-  m_Radius: 6.5176764
+  m_Radius: 7.3752136
