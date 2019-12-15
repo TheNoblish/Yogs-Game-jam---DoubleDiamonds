@@ -539,6 +539,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 386631381, guid: 12f6a082cdbd0cd428d9a0f0a0074ef3, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 386631381, guid: 12f6a082cdbd0cd428d9a0f0a0074ef3, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1200
+      objectReference: {fileID: 0}
+    - target: {fileID: 386631381, guid: 12f6a082cdbd0cd428d9a0f0a0074ef3, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 386631381, guid: 12f6a082cdbd0cd428d9a0f0a0074ef3, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6567853906386140930, guid: 12f6a082cdbd0cd428d9a0f0a0074ef3,
         type: 3}
       propertyPath: coinCounter

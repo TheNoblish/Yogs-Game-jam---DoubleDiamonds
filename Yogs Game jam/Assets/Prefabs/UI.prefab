@@ -63,7 +63,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: bef3c3635012f9d4b8d7ad14b6f7da0d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -138,8 +138,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: ed2d9ef4652bc3048b2aec99d59bfbd0, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -267,8 +267,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: ed2d9ef4652bc3048b2aec99d59bfbd0, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -298,7 +298,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 0, g: 0, b: 0, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
@@ -775,8 +775,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: ed2d9ef4652bc3048b2aec99d59bfbd0, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -902,7 +902,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: bef3c3635012f9d4b8d7ad14b6f7da0d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1158,7 +1158,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: +
+  m_Text: 
 --- !u!1 &6011491506555399935
 GameObject:
   m_ObjectHideFlags: 0
@@ -1405,7 +1405,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: +
+  m_Text: 
 --- !u!1 &6011491506798202738
 GameObject:
   m_ObjectHideFlags: 0
@@ -1523,10 +1523,10 @@ MonoBehaviour:
   coinShopPanel: {fileID: 6011491507052850944}
   coinShopCounterText: {fileID: 6011491506393165600}
   sprites:
-  - {fileID: 21300000, guid: 7b7e69efd4922544ba0ff1b4268080fb, type: 3}
-  - {fileID: 21300000, guid: 02e42610ff66c864d9a695ce71a0a4e7, type: 3}
-  - {fileID: 21300000, guid: 1ada9658a495b32458ef78b4071a9e99, type: 3}
-  - {fileID: 21300000, guid: 6c29c48cd16c5414696fd2ba08cbb885, type: 3}
+  - {fileID: 21300000, guid: f0f06752e0b6f49478ba1a5e8bc77170, type: 3}
+  - {fileID: 21300000, guid: 7b8a438fb200d454d9f6f3d4b2198b2c, type: 3}
+  - {fileID: 21300000, guid: a8018e42f748f4a4fb5a843b6bc74c5a, type: 3}
+  - {fileID: 21300000, guid: 3d047ca4c559bd74eafd99d24acfb10a, type: 3}
   throwSpeedLevels: {fileID: 6011491507122746025}
   movementSpeedLevels: {fileID: 6011491505326744407}
   jumpHeightLevels: {fileID: 6011491506210727892}
@@ -1940,7 +1940,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 168356dc8750cc44a9556e75f2e6c6a7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: bef3c3635012f9d4b8d7ad14b6f7da0d, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -2026,7 +2026,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: +
+  m_Text: '
+
+'
 --- !u!1 &6011491507325174967
 GameObject:
   m_ObjectHideFlags: 0
