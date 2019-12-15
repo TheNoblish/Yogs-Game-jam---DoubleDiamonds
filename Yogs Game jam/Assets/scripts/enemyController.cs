@@ -42,6 +42,7 @@ public class enemyController : MonoBehaviour
                 package.GetComponent<SpriteRenderer>().enabled = true;
                 package.GetComponent<BoxCollider2D>().enabled = true;
                 package.transform.position = new Vector3(transform.position.x, transform.position.y+2, transform.position.z);
+                package.GetComponent<Rigidbody2D>().velocity = new Vector3(0, 0, 0);
             }
         }
         // if the player is carrying the package have the enemy target them

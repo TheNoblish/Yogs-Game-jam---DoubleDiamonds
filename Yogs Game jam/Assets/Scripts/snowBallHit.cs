@@ -25,6 +25,7 @@ public class snowBallHit : MonoBehaviour
                 package.transform.position = new Vector3(transform.position.x,transform.position.y-.5f,0f);
                 package.GetComponent<SpriteRenderer>().enabled = true;
                 package.GetComponent<BoxCollider2D>().enabled = true;
+                package.GetComponent<Rigidbody2D>().velocity = new Vector3(0, 0, 0);
             }
             other.gameObject.SetActive(false);
         }
