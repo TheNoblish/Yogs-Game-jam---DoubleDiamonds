@@ -28,7 +28,7 @@ public class throwStuff : MonoBehaviour
             throwForce = maxThrowForce;
             if (PlayerController.isCarrying)
                 throwBox();
-            else
+            else if (CoinShop.snowballsUnlocked)
             throwBall();
         }
         else if (Input.GetButtonDown("Fire2"))
@@ -44,7 +44,7 @@ public class throwStuff : MonoBehaviour
         {
             if (PlayerController.isCarrying)
                 throwBox();
-            else
+            else if (CoinShop.snowballsUnlocked)
                 throwBall();
         }
     }

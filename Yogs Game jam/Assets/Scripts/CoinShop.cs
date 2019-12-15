@@ -16,7 +16,7 @@ public class CoinShop : MonoBehaviour
 
     public Sprite[] sprites;
 
-    bool snowballsUnlocked;
+    public static bool snowballsUnlocked;
     int throwSpeedLevel;
     public Image throwSpeedLevels;
     int movementSpeedLevel;
