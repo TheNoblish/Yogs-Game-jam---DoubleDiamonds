@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class OutroCutscene : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class OutroCutscene : MonoBehaviour
     public GameObject npc;
     public GameObject dialogueManager;
     public GameObject package;
+
 
     // Start is called before the first frame update
     void Start()
@@ -27,6 +29,9 @@ public class OutroCutscene : MonoBehaviour
     {
         player.GetComponent<Rigidbody2D>().isKinematic = false;
         player.GetComponent<PlayerController>().enabled = false;
+        player.GetComponent<Animator>().SetBool("isRunning", false);
+        player.GetComponent<Animator>().SetBool("isFacingRight", true);
+        player.GetComponent<Animator>().SetBool("hasPackage", true);
         npc.GetComponent<NPCManager>().enabled = true;
         npc.GetComponent<NPCManager>().startDialogue();
         StartCoroutine(EndGame());
@@ -34,10 +39,13 @@ public class OutroCutscene : MonoBehaviour
 
     IEnumerator EndGame()
     {
-        yield return new WaitForSeconds(7.5f);
-        player.GetComponent<Animator>().SetBool("isRunning", false);
-        player.GetComponent<Animator>().SetBool("isFacingRight", true);
-        player.GetComponent<Animator>().SetBool("hasPackage", true);
+        yield return new WaitForSeconds(5f);
         animator.SetTrigger("FadeOut");
+
+    }
+
+    public void LoadCredits()
+    {
+        SceneManager.LoadScene(2);
     }
 }
