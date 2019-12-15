@@ -81,6 +81,7 @@ public class PlayerController : MonoBehaviour
 
             if (Input.GetKey("q") || Input.GetKey("right shift"))
             {
+                //package.GetComponent<PackageSounds>().Step();
                 //package.SetActive(true);
                 package.GetComponent<SpriteRenderer>().enabled = true;
                 package.GetComponent<BoxCollider2D>().enabled = true;
