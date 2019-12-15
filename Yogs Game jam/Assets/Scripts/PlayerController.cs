@@ -136,7 +136,6 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    
     void OnTriggerExit2D(Collider2D other)
     {
         //stop being allowed to pickup when leaving the package
