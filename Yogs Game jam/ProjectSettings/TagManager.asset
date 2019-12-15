@@ -10,6 +10,9 @@ TagManager:
   - Enemy
   - enemyBoundary
   - gull
+  - Coin
+  - NPC
+  - Ground
   layers:
   - Default
   - TransparentFX
@@ -26,7 +29,7 @@ TagManager:
   - nest
   - nest floor
   - snowballl
-  - 
+  - Floor
   - 
   - 
   - 

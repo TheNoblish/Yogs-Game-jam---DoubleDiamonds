@@ -13,12 +13,12 @@ public class PlayerController : MonoBehaviour
     private GameObject coinHandler;
 
     bool isMoving;
-    bool isJumping;
+    public bool isJumping;
     public static bool isCarrying;
     bool onPackage;
     public bool canPet;
     public float speed = 5;
-    public float jumpHeight = 5;
+    public float jumpHeight = 2;
     public Transform jumpChecker;
     public GameObject package;
     public  float currentSpeed;
@@ -115,6 +115,11 @@ public class PlayerController : MonoBehaviour
             other.GetComponent<SpriteRenderer>().enabled = false;
             other.GetComponent<CircleCollider2D>().enabled = false;
         }
+
+        if (other.CompareTag("Ground"))
+        {
+            isJumping = false;
+        }
     }
 
     
@@ -133,6 +138,11 @@ public class PlayerController : MonoBehaviour
         {
             canPet = false;
             currentEnemy = null;
+        }
+
+        if (other.CompareTag("Ground"))
+        {
+            isJumping = true;
         }
     }
 
@@ -183,21 +193,26 @@ public class PlayerController : MonoBehaviour
         }
 
         //If the player presses SPACE
-        if (Input.GetKey("space") && !isJumping)
+        if (Input.GetKeyDown("space") && !isJumping)
         {
-            rigidbody2d.velocity = new Vector2(rigidbody2d.velocity.x, jumpHeight);
-            //jumping animation
-        }
-
-        if (Physics2D.Linecast(transform.position, jumpChecker.position, 1 << LayerMask.NameToLayer("Floor")))
-        {
-            isJumping = false;
-        }
-        else
-        {
-            isJumping = true;
+            //rigidbody2d.velocity = new Vector2(rigidbody2d.velocity.x, jumpHeight);
+            gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, jumpHeight), ForceMode2D.Impulse);
             //jumping animation
         }
     }
 
+    public void setMovementSpeed(float newSpeed)
+    {
+        speed = speed + 1;
+    }
+
+    public void setJumpHeight(float newHeight)
+    {
+        jumpHeight = jumpHeight + 2;
+    }
+
+    public void setThrowDistance(float newDistance)
+    {
+        speed = speed + 1;
+    }
 }

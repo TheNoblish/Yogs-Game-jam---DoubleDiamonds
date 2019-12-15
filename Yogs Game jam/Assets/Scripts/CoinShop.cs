@@ -119,15 +119,19 @@ public class CoinShop : MonoBehaviour
             switch (movementSpeedLevel)
             {
                 case 0:
+                    player.GetComponent<PlayerController>().setMovementSpeed(1);
                     movementSpeedLevels.sprite = sprites[0];
                     break;
                 case 1:
+                    player.GetComponent<PlayerController>().setMovementSpeed(1);
                     movementSpeedLevels.sprite = sprites[1];
                     break;
                 case 2:
+                    player.GetComponent<PlayerController>().setMovementSpeed(1);
                     movementSpeedLevels.sprite = sprites[2];
                     break;
                 case 3:
+                    player.GetComponent<PlayerController>().setMovementSpeed(1);
                     movementSpeedLevels.sprite = sprites[3];
                     break;
                 default:
@@ -152,6 +156,7 @@ public class CoinShop : MonoBehaviour
             switch (jumpHeightLevel)
             {
                 case 0:
+                    player.GetComponent<PlayerController>().setJumpHeight(1);
                     jumpHeightLevels.sprite = sprites[0];
                     break;
                 case 1:
