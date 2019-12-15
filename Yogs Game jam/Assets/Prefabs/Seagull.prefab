@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 3817276679099468575}
   - component: {fileID: 3817276679099468561}
   - component: {fileID: 3817276679099468560}
+  - component: {fileID: -8536141868120477341}
   m_Layer: 11
   m_Name: Seagull
   m_TagString: gull
@@ -229,9 +230,9 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 4.7469244
-  MaxDistance: 500
+  MaxDistance: 43.69559
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 1
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
