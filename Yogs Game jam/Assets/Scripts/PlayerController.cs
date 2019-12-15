@@ -102,11 +102,20 @@ public class PlayerController : MonoBehaviour
             gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, currentJumpHeight), ForceMode2D.Impulse);
             //jumping animation
 
+
         }
         else if (Input.GetKeyDown("space") && isJumping && !doubleJumped && !isCarrying)
         {
             gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, currentJumpHeight), ForceMode2D.Impulse);
             doubleJumped = true;
+        }
+        if (isJumping)
+        {
+            animator.SetBool("isJumping", true);
+        }
+        else
+        {
+            animator.SetBool("isJumping", false);
         }
 
     }
