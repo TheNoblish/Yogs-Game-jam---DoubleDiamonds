@@ -65,6 +65,7 @@
     <Compile Include="Assets\Scripts\backGround.cs" />
     <Compile Include="Assets\Scripts\ButtonHover.cs" />
     <Compile Include="Assets\Scripts\ButtonSounds.cs" />
+    <Compile Include="Assets\Scripts\CatSounds.cs" />
     <Compile Include="Assets\Scripts\ChangeResolution.cs" />
     <Compile Include="Assets\Scripts\CoinShop.cs" />
     <Compile Include="Assets\Scripts\CrateController.cs" />
