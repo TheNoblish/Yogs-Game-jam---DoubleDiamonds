@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
 
     bool isClimbing;
     bool isMoving;
+    public bool doubleJumped;
     public bool isJumping;
     public static bool isCarrying;
     bool onPackage;
@@ -75,8 +76,8 @@ public class PlayerController : MonoBehaviour
         if (isCarrying)
         {
             animator.SetBool("hasPackage", true);
-            currentSpeed = speed / 2;
-            currentJumpHeight = jumpHeight / 2;
+            currentSpeed = speed / 1.5f;
+            currentJumpHeight = jumpHeight / 1.5f;
 
             if (Input.GetKey("q") || Input.GetKey("right shift"))
             {
@@ -93,6 +94,18 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("hasPackage", false);
             currentSpeed = speed;
             currentJumpHeight = jumpHeight;
+        }
+        if (Input.GetKeyDown("space") && !isJumping)
+        {
+            //rigidbody2d.velocity = new Vector2(rigidbody2d.velocity.x, jumpHeight);
+            gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, currentJumpHeight), ForceMode2D.Impulse);
+            //jumping animation
+
+        }
+        else if (Input.GetKeyDown("space") && isJumping && !doubleJumped && !isCarrying)
+        {
+            gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, currentJumpHeight), ForceMode2D.Impulse);
+            doubleJumped = true;
         }
 
     }
@@ -133,6 +146,7 @@ public class PlayerController : MonoBehaviour
         if (other.CompareTag("Ground"))
         {
             isJumping = false;
+            doubleJumped = false;
         }
     }
 
@@ -206,12 +220,18 @@ public class PlayerController : MonoBehaviour
         }
 
         //If the player presses SPACE
-        if (Input.GetKeyDown("space") && !isJumping)
+        /*if (Input.GetKeyDown("space") && !isJumping)
         {
             //rigidbody2d.velocity = new Vector2(rigidbody2d.velocity.x, jumpHeight);
             gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, currentJumpHeight), ForceMode2D.Impulse);
             //jumping animation
+            
         }
+        else if (Input.GetKeyDown("space") && isJumping && !doubleJumped)
+        {
+            gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, currentJumpHeight), ForceMode2D.Impulse);
+            doubleJumped = true;
+        }*/
 
         RaycastHit2D raycastHit2D = Physics2D.Raycast(transform.position, Vector2.up, raycastDistance, ladder);
 

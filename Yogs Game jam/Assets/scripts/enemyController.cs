@@ -37,7 +37,7 @@ public class enemyController : MonoBehaviour
     {
         package = GameObject.FindGameObjectWithTag("Package");
         // if petted enough become passive and drop package
-        if (pets > 200 && !passive)
+        if (pets > 100 && !passive)
         {
             passive = true;
             if (gotPackage)
