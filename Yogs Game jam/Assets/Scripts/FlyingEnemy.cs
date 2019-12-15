@@ -8,7 +8,7 @@ public class FlyingEnemy : MonoBehaviour
     Animator animator;
 
     GameObject player;
-    GameObject package;
+    public GameObject package;
     bool returned = true;
     Rigidbody2D rigidbody2D;
     int patrolDirection = -1;
@@ -21,7 +21,7 @@ public class FlyingEnemy : MonoBehaviour
     public float speed;
     public float attackRange;
     public Transform nest;
-    public nest nestScript;
+    //public nest nestScript;
 
     // Start is called before the first frame update
     void Start()
@@ -94,6 +94,15 @@ public class FlyingEnemy : MonoBehaviour
             }
         }
 
+        if (gotPackage)
+        {
+            animator.SetBool("hasBox", true);
+        }
+        else
+        {
+            animator.SetBool("hasBox", false);
+        }
+
         //Debug.Log(rigidbody2D.velocity.x);
         //transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
     }
@@ -107,7 +116,7 @@ public class FlyingEnemy : MonoBehaviour
             isAttacking = true;
             gameObject.transform.Rotate(0, 0, 35);
         }
-        if (other.CompareTag("Package") && !isAttacking && !nestScript.delivered && !isGrabbing && !gotPackage && Mathf.Abs(package.transform.position.y -transform.position.y) > 1)
+        if (other.CompareTag("Package") && !isAttacking  && !isGrabbing && !gotPackage && Mathf.Abs(package.transform.position.y -transform.position.y) > 1)
         {
             speed = 5;
             isGrabbing = true;

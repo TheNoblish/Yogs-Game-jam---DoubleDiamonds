@@ -100,6 +100,14 @@ public class enemyController : MonoBehaviour
         {
             passive = false;
         }
+        if (gotPackage)
+        {
+            animator.SetBool("hasBox", true);
+        }
+        else
+        {
+            animator.SetBool("hasBox", false);
+        }
     }
 
     void OnCollisionEnter2D (Collision2D other)
@@ -169,16 +177,12 @@ public class enemyController : MonoBehaviour
         // start running
         animator.SetFloat("speed", Mathf.Abs(rb.velocity.x));
         // flip sprites
-        Vector3 scale = transform.localScale;
+        
         if (direction == 1)
         {
-            scale.x = -1;
-            transform.localScale = scale;
+            gameObject.GetComponent<SpriteRenderer>().flipX = true;
         }
         else
-        {
-            scale.x = 1;
-            transform.localScale = scale;
-        }
+            gameObject.GetComponent<SpriteRenderer>().flipX = false;
     }
 }
