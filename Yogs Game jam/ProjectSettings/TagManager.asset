@@ -10,6 +10,7 @@ TagManager:
   - Enemy
   - gull
   - nest
+  - snowball
   layers:
   - Default
   - TransparentFX
@@ -25,7 +26,7 @@ TagManager:
   - gull
   - nest
   - nestFloor
-  - 
+  - snowBall
   - 
   - 
   - 

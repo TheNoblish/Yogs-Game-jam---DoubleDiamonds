@@ -60,6 +60,15 @@ public class FlyingEnemy : MonoBehaviour
             patrolDirection = -1;
             returned = true;
 
+        if (rigidbody2D.velocity.x < 0 )
+        {
+            gameObject.GetComponent<SpriteRenderer>().flipX = false;
+        }
+        else if (rigidbody2D.velocity.x > 0)
+        {
+            gameObject.GetComponent<SpriteRenderer>().flipX = true;
+        }
+
 
         //transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
     }
@@ -86,7 +95,7 @@ public class FlyingEnemy : MonoBehaviour
         {
             gotPackage = false;
             animator.SetBool("isDiving", false);
-            package.transform.position = new Vector3 (nest.position.x,nest.position.y+1,0f);
+            package.transform.position = new Vector3 (nest.position.x,10,0f);
             package.GetComponent<SpriteRenderer>().enabled = true;
             package.GetComponent<BoxCollider2D>().enabled = true;
         }
