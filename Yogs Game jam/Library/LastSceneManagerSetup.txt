@@ -1,5 +1,9 @@
 sceneSetups:
+<<<<<<< HEAD
 - path: Assets/Scenes/PlayerController Sample.unity
+=======
+- path: Assets/Scenes/birdattack test.unity
+>>>>>>> d9e895f5af304278b6241d34456f359ba2e85e80
   isLoaded: 1
   isActive: 1
   isSubScene: 0

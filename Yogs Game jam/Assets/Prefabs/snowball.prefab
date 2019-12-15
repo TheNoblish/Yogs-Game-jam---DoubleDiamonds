@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 6314440281791579396}
   - component: {fileID: 3386322599286873563}
   - component: {fileID: 3822750925386572534}
-  m_Layer: 10
+  - component: {fileID: 351726727}
+  m_Layer: 14
   m_Name: snowball
-  m_TagString: Untagged
+  m_TagString: snowball
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -119,3 +120,15 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &351726727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3270890944839899458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d47ec2e5ccede014ab161ba36a31c306, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

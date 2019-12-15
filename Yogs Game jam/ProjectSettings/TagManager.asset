@@ -8,7 +8,13 @@ TagManager:
   - enemyBoundary
   - NPC
   - Enemy
+<<<<<<< HEAD
   - Coin
+=======
+  - gull
+  - nest
+  - snowball
+>>>>>>> d9e895f5af304278b6241d34456f359ba2e85e80
   layers:
   - Default
   - TransparentFX
@@ -21,10 +27,10 @@ TagManager:
   - Floor
   - package
   - enemy
-  - 
-  - 
-  - 
-  - 
+  - gull
+  - nest
+  - nestFloor
+  - snowBall
   - 
   - 
   - 
