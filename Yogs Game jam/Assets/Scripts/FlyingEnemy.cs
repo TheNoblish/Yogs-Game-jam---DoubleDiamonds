@@ -153,7 +153,7 @@ public class FlyingEnemy : MonoBehaviour
         {
             gotPackage = false;
             animator.SetBool("isDiving", false);
-            package.transform.position = new Vector3 (nest.position.x,10,0f);
+            package.transform.position = new Vector3 (nest.position.x,nest.position.y+1,0f);
             package.GetComponent<SpriteRenderer>().enabled = true;
             package.GetComponent<BoxCollider2D>().enabled = true;
             package.GetComponent<Rigidbody2D>().velocity = new Vector3(0, 0, 0);
