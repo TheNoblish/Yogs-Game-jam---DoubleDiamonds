@@ -1,2 +1,10 @@
 Base path: 'D:/editors/2019.2.15f1/Editor/Data', plugins path 'D:/editors/2019.2.15f1/Editor/Data/PlaybackEngines'
 Cmd: initializeCompiler
+Cmd: preprocess
+  insize=3369 outsize=1219 ok=1
+Cmd: preprocess
+  insize=2859 outsize=1135 ok=1
+Cmd: preprocess
+  insize=2604 outsize=1093 ok=1
+Cmd: preprocess
+  insize=3114 outsize=1176 ok=1
