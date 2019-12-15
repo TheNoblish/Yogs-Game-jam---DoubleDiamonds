@@ -13,6 +13,8 @@ TagManager:
   - Coin
   - NPC
   - Ground
+  - SilverCoin
+  - GoldCoin
   layers:
   - Default
   - TransparentFX

@@ -60,9 +60,9 @@ public class CoinShop : MonoBehaviour
         return coins;
     }
 
-    public void addCoin()
+    public void addCoin(int coin)
     {
-        coins = coins + 1;
+        coins = coins + coin;
         coinCounterText.text = "Coins: " + coins.ToString();
     }
 

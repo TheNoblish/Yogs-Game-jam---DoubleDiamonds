@@ -294,7 +294,7 @@ GameObject:
   - component: {fileID: 7561572558964698066}
   m_Layer: 0
   m_Name: Coin
-  m_TagString: Coin
+  m_TagString: GoldCoin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -390,7 +390,8 @@ AudioSource:
   m_GameObject: {fileID: 7561572558964698070}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 5544604585247752777, guid: 4014a0f68d55d8b48904a408ea1edf88,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: 61bac5df432526a4fbdba4d458ca8f36, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.5

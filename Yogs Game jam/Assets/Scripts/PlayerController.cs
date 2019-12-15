@@ -136,10 +136,18 @@ public class PlayerController : MonoBehaviour
             other.GetComponent<NPCManager>().startDialogue();
         }
 
-        if (other.CompareTag("Coin"))
+        if (other.CompareTag("SilverCoin"))
         {
             other.GetComponent<AudioSource>().Play();
-            coinHandler.GetComponent<CoinShop>().addCoin();
+            coinHandler.GetComponent<CoinShop>().addCoin(1);
+            other.GetComponent<SpriteRenderer>().enabled = false;
+            other.GetComponent<CircleCollider2D>().enabled = false;
+        }
+
+        if (other.CompareTag("GoldCoin"))
+        {
+            other.GetComponent<AudioSource>().Play();
+            coinHandler.GetComponent<CoinShop>().addCoin(2);
             other.GetComponent<SpriteRenderer>().enabled = false;
             other.GetComponent<CircleCollider2D>().enabled = false;
         }
