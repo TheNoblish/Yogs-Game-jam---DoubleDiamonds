@@ -4,17 +4,12 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Package
-  - enemyBoundary
-  - NPC
-  - Enemy
-<<<<<<< HEAD
-  - Coin
-=======
-  - gull
-  - nest
   - snowball
->>>>>>> d9e895f5af304278b6241d34456f359ba2e85e80
+  - Package
+  - nest
+  - Enemy
+  - enemyBoundary
+  - gull
   layers:
   - Default
   - TransparentFX
@@ -24,13 +19,13 @@ TagManager:
   - UI
   - 
   - 
-  - Floor
+  - 
   - package
   - enemy
   - gull
   - nest
-  - nestFloor
-  - snowBall
+  - nest floor
+  - snowballl
   - 
   - 
   - 
