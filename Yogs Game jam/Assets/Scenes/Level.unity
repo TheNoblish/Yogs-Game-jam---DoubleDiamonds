@@ -2127,8 +2127,9 @@ MonoBehaviour:
   spriteNumber: 1
   dialogueManager: {fileID: 0}
   dialogueArray:
-  - Deliverin' a Christmas package are ye? Be careful of the gulls, those nasty buggers
-    will come right at ye if they spot a chance to steal!
+  - Be careful of the gulls, those nasty buggers will come right at ye if they spot
+    a chance to steal! Ye can press tab to get some snowballs to take em down with
+    if ye have coins.
 --- !u!1 &721049241
 GameObject:
   m_ObjectHideFlags: 0
