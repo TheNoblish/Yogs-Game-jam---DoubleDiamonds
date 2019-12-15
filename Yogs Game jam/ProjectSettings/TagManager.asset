@@ -8,6 +8,7 @@ TagManager:
   - enemyBoundary
   - NPC
   - Enemy
+  - Coin
   layers:
   - Default
   - TransparentFX

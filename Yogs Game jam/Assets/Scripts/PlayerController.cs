@@ -1,12 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
     Animator animator;
     Rigidbody2D rigidbody2d;
     SpriteRenderer spriteRenderer;
+
+    public Text coinCounter;
+    private GameObject coinHandler;
 
     bool isMoving;
     bool isJumping;
@@ -26,10 +30,10 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
         animator = GetComponent<Animator>();
         rigidbody2d = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        coinHandler = GameObject.Find("UI");
     }
 
     // Update is called once per frame
@@ -101,6 +105,14 @@ public class PlayerController : MonoBehaviour
         {
             //rigidbody2d.constraints = RigidbodyConstraints2D.FreezePositionX;
             other.GetComponent<NPCManager>().startDialogue();
+        }
+
+        if (other.CompareTag("Coin"))
+        {
+            other.GetComponent<AudioSource>().Play();
+            coinHandler.GetComponent<CoinShop>().addCoin();
+            other.GetComponent<SpriteRenderer>().enabled = false;
+            other.GetComponent<CircleCollider2D>().enabled = false;
         }
     }
 
