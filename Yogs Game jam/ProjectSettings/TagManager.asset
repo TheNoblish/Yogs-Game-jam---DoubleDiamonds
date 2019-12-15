@@ -22,7 +22,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - floor
   - package
   - enemy
   - gull
@@ -49,4 +49,10 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: tileBackground
+    uniqueID: 683174113
+    locked: 0
+  - name: background
+    uniqueID: 3727906331
     locked: 0
