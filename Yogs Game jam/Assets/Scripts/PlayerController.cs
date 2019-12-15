@@ -208,7 +208,7 @@ public class PlayerController : MonoBehaviour
 
     public void setJumpHeight(float newHeight)
     {
-        jumpHeight = jumpHeight + 2;
+        jumpHeight = jumpHeight + 1;
     }
 
     public void setThrowDistance(float newDistance)

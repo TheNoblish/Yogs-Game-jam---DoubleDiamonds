@@ -70,4 +70,9 @@ public class throwStuff : MonoBehaviour
         package.GetComponent<Rigidbody2D>().velocity = (cam.ScreenToWorldPoint(Input.mousePosition) - transform.position) * throwForce;
         PlayerController.isCarrying = false;
     }
+
+    public void setThrowForce()
+    {
+        minThrowForce = minThrowForce + 1;
+    }
 }

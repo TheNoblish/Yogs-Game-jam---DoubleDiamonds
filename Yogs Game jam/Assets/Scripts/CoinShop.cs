@@ -85,15 +85,19 @@ public class CoinShop : MonoBehaviour
             switch (throwSpeedLevel)
             {
                 case 0:
+                    player.GetComponent<throwStuff>().setThrowForce();
                     throwSpeedLevels.sprite = sprites[0];
                     break;
                 case 1:
+                    player.GetComponent<throwStuff>().setThrowForce();
                     throwSpeedLevels.sprite = sprites[1];
                     break;
                 case 2:
+                    player.GetComponent<throwStuff>().setThrowForce();
                     throwSpeedLevels.sprite = sprites[2];
                     break;
                 case 3:
+                    player.GetComponent<throwStuff>().setThrowForce();
                     throwSpeedLevels.sprite = sprites[3];
                     break;
                 default:
