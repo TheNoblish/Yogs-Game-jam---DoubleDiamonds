@@ -6511,6 +6511,12 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6011491506921846730, guid: 719e870254cab3847a977a4700969fca,
+        type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 28349dc05e9eeab4a8e5e48f63e6e277,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 719e870254cab3847a977a4700969fca, type: 3}
 --- !u!1 &1941623175
