@@ -113,6 +113,10 @@ public class enemyController : MonoBehaviour
             other.gameObject.GetComponent<BoxCollider2D>().enabled = false;
             runFrom = transform.position;
         }
+        if (other.gameObject.tag == "snowball")
+        {;
+            runFrom = new Vector3(transform.position.x-21,transform.position.y,0);
+        }
     }
 
     void OnTriggerEnter2D(Collider2D other)
