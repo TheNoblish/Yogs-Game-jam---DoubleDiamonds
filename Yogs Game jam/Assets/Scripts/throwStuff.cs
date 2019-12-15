@@ -11,6 +11,7 @@ public class throwStuff : MonoBehaviour
     public float throwForce;
     public Camera cam;
     private bool thrown;
+    public GameObject package;
 
     // Start is called before the first frame update
     void Start()
@@ -25,6 +26,9 @@ public class throwStuff : MonoBehaviour
         if (throwForce >= maxThrowForce && !thrown)
         {
             throwForce = maxThrowForce;
+            if (PlayerController.isCarrying)
+                throwBox();
+            else
             throwBall();
         }
         else if (Input.GetButtonDown("Fire2"))
@@ -38,7 +42,10 @@ public class throwStuff : MonoBehaviour
         }
         else if (Input.GetButtonUp("Fire2") && !thrown)
         {
-            throwBall();
+            if (PlayerController.isCarrying)
+                throwBox();
+            else
+                throwBall();
         }
     }
 
@@ -52,5 +59,15 @@ public class throwStuff : MonoBehaviour
         //ball.GetComponent<Rigidbody2D>().velocity = new Vector3(1*throwForce,0f,0f);
         ball.GetComponent<Rigidbody2D>().velocity = (cam.ScreenToWorldPoint(Input.mousePosition) - transform.position) * throwForce;
         throwForce = minThrowForce;
+    }
+
+    void throwBox()
+    {
+        thrown = true;
+        package.GetComponent<SpriteRenderer>().enabled = true;
+        package.GetComponent<BoxCollider2D>().enabled = true;
+        package.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+        package.GetComponent<Rigidbody2D>().velocity = (cam.ScreenToWorldPoint(Input.mousePosition) - transform.position) * throwForce;
+        PlayerController.isCarrying = false;
     }
 }

@@ -16,10 +16,12 @@ public class FlyingEnemy : MonoBehaviour
     Vector2 playerPosition;
 
     public bool isAttacking;
+    public bool isGrabbing;
     public bool gotPackage;
     public float speed;
     public float attackRange;
     public Transform nest;
+    public nest nestScript;
 
     // Start is called before the first frame update
     void Start()
@@ -33,7 +35,7 @@ public class FlyingEnemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!isAttacking && !gotPackage)
+        if (!isAttacking && !gotPackage && !isGrabbing)
         {
             animator.SetBool("isDiving", false);
             rigidbody2D.velocity = new Vector2(1.5f*patrolDirection, 0) * speed;
@@ -42,6 +44,12 @@ public class FlyingEnemy : MonoBehaviour
 
             animator.SetBool("isDiving", true);
             transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
+        }
+        else if (isGrabbing)
+        {
+
+            animator.SetBool("isDiving", true);
+            transform.position = Vector2.MoveTowards(transform.position, package.transform.position, speed * Time.deltaTime);
         }
         else if (gotPackage)
         {
@@ -60,16 +68,33 @@ public class FlyingEnemy : MonoBehaviour
             patrolDirection = -1;
             returned = true;
 
-        if (rigidbody2D.velocity.x < 0 )
+        if (isAttacking)
+            gameObject.layer = 11;
+        else
+            gameObject.layer = 10;
+        //unity
+        if (gotPackage)
         {
-            gameObject.GetComponent<SpriteRenderer>().flipX = false;
+            
+            if (nest.position.x > transform.position.x)
+                gameObject.GetComponent<SpriteRenderer>().flipX = true;
+            else
+                gameObject.GetComponent<SpriteRenderer>().flipX = false;
         }
-        else if (rigidbody2D.velocity.x > 0)
+        else
         {
-            gameObject.GetComponent<SpriteRenderer>().flipX = true;
+            
+            if (rigidbody2D.velocity.x < 0)
+            {
+                gameObject.GetComponent<SpriteRenderer>().flipX = false;
+            }
+            else if (rigidbody2D.velocity.x > 0.1)
+            {
+                gameObject.GetComponent<SpriteRenderer>().flipX = true;
+            }
         }
 
-
+        //Debug.Log(rigidbody2D.velocity.x);
         //transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
     }
 
@@ -82,14 +107,23 @@ public class FlyingEnemy : MonoBehaviour
             isAttacking = true;
             gameObject.transform.Rotate(0, 0, 35);
         }
+        if (other.CompareTag("Package") && !isAttacking && !nestScript.delivered && !isGrabbing && !gotPackage && Mathf.Abs(package.transform.position.y -transform.position.y) > 1)
+        {
+            speed = 5;
+            isGrabbing = true;
+            gameObject.transform.Rotate(0, 0, 35);
+            Debug.Log("grabbing!");
+        }
     }
     void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag("Player") && PlayerController.isCarrying)
+        if (other.gameObject.CompareTag("Player") && PlayerController.isCarrying && !gotPackage)
         {
             gotPackage = true;
+            animator.SetBool("isDiving", false);
             PlayerController.isCarrying = false;
             isAttacking = false;
+            gameObject.transform.Rotate(0, 0, -35);
         }
         if (other.gameObject.CompareTag("nest") && gotPackage)
         {
@@ -98,6 +132,16 @@ public class FlyingEnemy : MonoBehaviour
             package.transform.position = new Vector3 (nest.position.x,10,0f);
             package.GetComponent<SpriteRenderer>().enabled = true;
             package.GetComponent<BoxCollider2D>().enabled = true;
+        }
+        if (other.gameObject.CompareTag("Package"))
+        {
+            gotPackage = true;
+            isGrabbing = false;
+            animator.SetBool("isDiving", false);
+            other.gameObject.GetComponent<SpriteRenderer>().enabled = false;
+            other.gameObject.GetComponent<BoxCollider2D>().enabled = false;
+            gameObject.transform.Rotate(0, 0, -35);
+            
         }
     }
 }
