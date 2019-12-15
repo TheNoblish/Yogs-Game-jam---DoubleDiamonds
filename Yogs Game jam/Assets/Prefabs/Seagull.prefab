@@ -16,10 +16,9 @@ GameObject:
   - component: {fileID: 3817276679099468575}
   - component: {fileID: 3817276679099468561}
   - component: {fileID: 3817276679099468560}
-  - component: {fileID: -8536141868120477341}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Seagull
-  m_TagString: Untagged
+  m_TagString: gull
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -205,7 +204,7 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.34713745, y: -6.293148}
+  m_Offset: {x: -0.34713745, y: -3.4088812}
   serializedVersion: 2
   m_Radius: 7.3752136
 --- !u!82 &-8536141868120477341
