@@ -15,6 +15,7 @@ TagManager:
   - Ground
   - SilverCoin
   - GoldCoin
+  - End
   layers:
   - Default
   - TransparentFX

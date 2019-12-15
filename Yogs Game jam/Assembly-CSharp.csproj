@@ -76,9 +76,11 @@
     <Compile Include="Assets\Scripts\Footsteps.cs" />
     <Compile Include="Assets\Scripts\FullscreenToggle.cs" />
     <Compile Include="Assets\Scripts\IngameMenu.cs" />
+    <Compile Include="Assets\Scripts\IntroCutscene.cs" />
     <Compile Include="Assets\Scripts\levelBuilder.cs" />
     <Compile Include="Assets\Scripts\nest.cs" />
     <Compile Include="Assets\Scripts\NPCManager.cs" />
+    <Compile Include="Assets\Scripts\OutroCutscene.cs" />
     <Compile Include="Assets\Scripts\package.cs" />
     <Compile Include="Assets\Scripts\PackageSounds.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />

@@ -13,7 +13,7 @@ public class NPCManager : MonoBehaviour
 
     public int spriteNumber;
 
-    GameObject dialogueManager;
+    public GameObject dialogueManager;
 
     GameObject player;
 

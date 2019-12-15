@@ -33,6 +33,7 @@ public class PlayerController : MonoBehaviour
     public float raycastDistance;
 
     public GameObject currentEnemy;
+    public GameObject UI;
 
     // Start is called before the first frame update
     void Start()
@@ -165,6 +166,11 @@ public class PlayerController : MonoBehaviour
         {
             isJumping = false;
             doubleJumped = false;
+        }
+
+        if (other.CompareTag("End"))
+        {
+            UI.GetComponent<OutroCutscene>().StartOutro();
         }
     }
 
