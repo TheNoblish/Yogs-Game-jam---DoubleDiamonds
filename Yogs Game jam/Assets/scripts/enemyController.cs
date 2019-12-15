@@ -132,7 +132,6 @@ public class enemyController : MonoBehaviour
             rb.velocity = new Vector3(1f,rb.velocity.y,0);
         }
     }
-
     void OnTriggerEnter2D(Collider2D other)
     {
         // grab the package from the player

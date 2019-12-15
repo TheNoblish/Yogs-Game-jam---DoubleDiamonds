@@ -28,7 +28,7 @@ public class FlyingEnemy : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
-        player = GameObject.Find("Player 1");
+        player = GameObject.Find("Player");
         package = GameObject.Find("package");
         rigidbody2D = GetComponent<Rigidbody2D>();
     }
