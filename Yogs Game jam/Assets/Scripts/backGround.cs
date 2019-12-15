@@ -26,12 +26,12 @@ public class backGround : MonoBehaviour
         position -= speed*Time.deltaTime;
         if (position <= (player.transform.position.x - 75))
         {
-            transform.position = new Vector3(player.transform.position.x + 75,0,0);
+            transform.position = new Vector3(player.transform.position.x + 75,transform.position.y,0);
             position = player.transform.position.x + 75;
         }
         else if (position >= (player.transform.position.x + 75))
         {
-            transform.position = new Vector3(player.transform.position.x - 75, 0, 0);
+            transform.position = new Vector3(player.transform.position.x - 75, transform.position.y, 0);
             position = player.transform.position.x - 75;
         }
     }
