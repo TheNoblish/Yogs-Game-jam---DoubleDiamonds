@@ -19,6 +19,10 @@ public class enemyController : MonoBehaviour
     public bool passive = false;
     public float movementSpeed;
     public float pets;
+    public float playerAggro =5;
+    public float playerEscape =10;
+    public float packageAggro = 10;
+    public float packagEscape = 15;
 
     void Start()
     {
@@ -52,12 +56,12 @@ public class enemyController : MonoBehaviour
             targetingPackage = false;
 
             // start targeting the player if they get too close
-            if (Vector3.Distance(player.transform.position, transform.position) < 5)
+            if (Vector3.Distance(player.transform.position, transform.position) < playerAggro)
             {
                 targetingPlayer = true;
             }
             // let the player escape if they get far enough away
-            else if (Vector3.Distance(player.transform.position, transform.position) > 5)
+            else if (Vector3.Distance(player.transform.position, transform.position) > playerEscape)
             {
                 targetingPlayer = false;
             }
@@ -83,12 +87,12 @@ public class enemyController : MonoBehaviour
             runningFromPlayer = false;
             targetingPlayer = false;
             // go for the package
-            if (Vector3.Distance(package.transform.position, transform.position) < 5)
+            if (Vector3.Distance(package.transform.position, transform.position) < packageAggro)
             {
                 targetingPackage = true;
             }
             // stop chasing the package if theyre too far
-            else if (Vector3.Distance(package.transform.position, transform.position) > 3)
+            else if (Vector3.Distance(package.transform.position, transform.position) > packagEscape)
             {
                 targetingPackage = false;
             }

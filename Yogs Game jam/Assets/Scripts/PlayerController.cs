@@ -71,6 +71,7 @@ public class PlayerController : MonoBehaviour
         {
             animator.SetBool("hasPackage", true);
             currentSpeed = speed / 2;
+            currentJumpHeight = jumpHeight / 2;
 
             if (Input.GetKey("q") || Input.GetKey("right shift"))
             {
@@ -86,6 +87,7 @@ public class PlayerController : MonoBehaviour
         {
             animator.SetBool("hasPackage", false);
             currentSpeed = speed;
+            currentJumpHeight = jumpHeight;
         }
 
     }
@@ -203,7 +205,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown("space") && !isJumping)
         {
             //rigidbody2d.velocity = new Vector2(rigidbody2d.velocity.x, jumpHeight);
-            gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, jumpHeight), ForceMode2D.Impulse);
+            gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, currentJumpHeight), ForceMode2D.Impulse);
             //jumping animation
         }
 

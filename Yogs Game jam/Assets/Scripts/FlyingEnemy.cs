@@ -61,11 +61,11 @@ public class FlyingEnemy : MonoBehaviour
 
         if (Mathf.Abs(nest.position.x - transform.position.x) > 40 && returned)
         {
-            patrolDirection = 1;
+            patrolDirection = -1;
             returned = false;
         }
         else if (Mathf.Abs(nest.position.x - transform.position.x) < 5)
-            patrolDirection = -1;
+            patrolDirection = 1;
             returned = true;
 
         if (isAttacking)
