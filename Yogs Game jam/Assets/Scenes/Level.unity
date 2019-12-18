@@ -4523,8 +4523,10 @@ MonoBehaviour:
   spriteNumber: 0
   dialogueManager: {fileID: 1622104071}
   dialogueArray:
-  - Now now, don't forget to pick up my package for Noelle by pressing E while standing
-    nearby! If you need to put it down again, you can press Q. Take care!
+  - Hello dear, I need you to take the package over there to Noelle. Pick it up (E).
+    Careful, it's heavy, if you need to run or jump you will have to drop it (Q) or
+    throw it (right click, hold to charge). If the cats steal it, pet them (S) to
+    get it back.
 --- !u!4 &1483895733 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1544999864369117080, guid: fd8b7fcab31cdc940809acb1dfba6224,

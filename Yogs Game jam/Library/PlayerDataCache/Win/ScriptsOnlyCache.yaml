@@ -967,5 +967,5 @@ ScriptsOnlyBuild:
   - Assets/Scenes/Main_Menu.unity
   - Assets/Scenes/Level.unity
   - Assets/Scenes/Credits.unity
-  playerPath: D:/Program Files/Yogs-Game-jam---DoubleDiamonds/Yogs Game jam/ThisWayUp/Yogs
+  playerPath: D:/Program Files/Yogs-Game-jam---DoubleDiamonds/Yogs Game jam/TWU/Yogs
     Game jam.exe
