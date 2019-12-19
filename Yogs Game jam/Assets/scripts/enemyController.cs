@@ -15,8 +15,10 @@ public class enemyController : MonoBehaviour
     public bool targetingPlayer = false;
     public bool runningFromPlayer = false;
     public bool gotPackage = false;
+    public bool droppedPackage;
     public bool targetingPackage = false;
     public bool passive = false;
+    bool pettedCat = false;
     public float movementSpeed;
     public float pets;
     public float playerAggro =5;
@@ -40,8 +42,11 @@ public class enemyController : MonoBehaviour
         if (pets > 100 && !passive)
         {
             passive = true;
-            if (gotPackage)
+            if (gotPackage && !pettedCat)
             {
+                pettedCat = true;
+                animator.SetBool("hasBox", false);
+                droppedPackage = true;
                 //package.SetActive(true);
                 package.GetComponent<SpriteRenderer>().enabled = true;
                 package.GetComponent<BoxCollider2D>().enabled = true;
@@ -104,6 +109,7 @@ public class enemyController : MonoBehaviour
         {
             passive = false;
         }
+
         if (gotPackage)
         {
             animator.SetBool("hasBox", true);

@@ -170,7 +170,13 @@ public class PlayerController : MonoBehaviour
 
         if (other.CompareTag("End"))
         {
-            UI.GetComponent<OutroCutscene>().StartOutro();
+            if (isCarrying) {
+                UI.GetComponent<OutroCutscene>().StartOutro();
+            } else
+            {
+                return;
+            }
+
         }
     }
 

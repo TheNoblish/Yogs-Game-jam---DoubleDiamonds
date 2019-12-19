@@ -37,7 +37,8 @@ public class IntroCutscene : MonoBehaviour
         package.GetComponent<AudioSource>().enabled = true;
         npc.GetComponent<NPCManager>().enabled = true;
         npc.GetComponent<NPCManager>().startDialogue();
-        yield return new WaitForSeconds(10f);
+        yield return new WaitForSeconds(12f);
+        npc.GetComponent<BoxCollider2D>().enabled = true;
         player.GetComponent<Rigidbody2D>().isKinematic = false;
         player.GetComponent<PlayerController>().enabled = true;
     }
