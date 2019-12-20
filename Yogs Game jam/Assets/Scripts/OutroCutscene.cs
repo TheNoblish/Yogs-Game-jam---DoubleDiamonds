@@ -11,6 +11,8 @@ public class OutroCutscene : MonoBehaviour
     public GameObject npc;
     public GameObject dialogueManager;
     public GameObject package;
+    public AudioSource audioSource;
+    public AudioSource audioSource2;
 
 
     // Start is called before the first frame update
@@ -39,8 +41,13 @@ public class OutroCutscene : MonoBehaviour
 
     IEnumerator EndGame()
     {
+        IEnumerator fadeSound = MusicFadeOut.FadeOut(audioSource, 20f);
+        IEnumerator fadeSound2 = MusicFadeOut.FadeOut(audioSource2, 20f);
+        StartCoroutine(fadeSound);
+        StartCoroutine(fadeSound2);
         yield return new WaitForSeconds(5f);
         animator.SetTrigger("FadeOut");
+
 
     }
 
