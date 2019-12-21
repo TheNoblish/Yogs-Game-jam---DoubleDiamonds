@@ -124,6 +124,7 @@ MonoBehaviour:
   targetingPlayer: 0
   runningFromPlayer: 0
   gotPackage: 0
+  droppedPackage: 0
   targetingPackage: 0
   passive: 0
   movementSpeed: 5

@@ -29,7 +29,6 @@ public class OutroCutscene : MonoBehaviour
 
     public void StartOutro()
     {
-        player.GetComponent<Rigidbody2D>().isKinematic = false;
         player.GetComponent<PlayerController>().enabled = false;
         player.GetComponent<Animator>().SetBool("isRunning", false);
         player.GetComponent<Animator>().SetBool("isFacingRight", true);

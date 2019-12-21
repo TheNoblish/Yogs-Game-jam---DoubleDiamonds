@@ -10,7 +10,7 @@ public class CoinShop : MonoBehaviour
     Text coinCounterText;
     public Text coinShopCounterText;
     bool shopOpen;
-    int coins;
+    public int coins;
 
     GameObject player;
 
@@ -80,7 +80,8 @@ public class CoinShop : MonoBehaviour
 
     public void upgradeThrowSpeed()
     {
-        if (throwSpeedLevel <= 4 && coins >= 1)
+
+        if (throwSpeedLevel < 4 && coins >= 1)
         {
             switch (throwSpeedLevel)
             {
@@ -104,9 +105,9 @@ public class CoinShop : MonoBehaviour
                     break;
             }
 
-            coins = coins - 1;
-            coinShopCounterText.text = "Coins: " + coins.ToString();
-            coinCounterText.text = "Coins: " + coins.ToString();
+                coins = coins - 1;
+                coinShopCounterText.text = "Coins: " + coins.ToString();
+                coinCounterText.text = "Coins: " + coins.ToString();
 
             if (throwSpeedLevel <= 3)
             {
@@ -116,9 +117,10 @@ public class CoinShop : MonoBehaviour
 
     }
 
-        public void upgradeMovementSpeed()
+    public void upgradeMovementSpeed()
     {
-        if (movementSpeedLevel <= 4 && coins >= 1)
+
+        if (movementSpeedLevel < 4 && coins >= 1)
         {
             switch (movementSpeedLevel)
             {
@@ -142,9 +144,9 @@ public class CoinShop : MonoBehaviour
                     break;
             }
 
-            coins = coins - 1;
-            coinShopCounterText.text = "Coins: " + coins.ToString();
-            coinCounterText.text = "Coins: " + coins.ToString();
+                coins = coins - 1;
+                coinShopCounterText.text = "Coins: " + coins.ToString();
+                coinCounterText.text = "Coins: " + coins.ToString();
 
             if (movementSpeedLevel <= 3)
             {
@@ -155,30 +157,34 @@ public class CoinShop : MonoBehaviour
 
     public void upgradeJumpHeight()
     {
-        if (jumpHeightLevel <= 4 && coins >= 1)
+
+        if (jumpHeightLevel < 4 && coins >= 1)
         {
             switch (jumpHeightLevel)
             {
                 case 0:
-                    player.GetComponent<PlayerController>().setJumpHeight(1);
+                    player.GetComponent<PlayerController>().setJumpHeight(0.25f);
                     jumpHeightLevels.sprite = sprites[0];
                     break;
                 case 1:
+                    player.GetComponent<PlayerController>().setJumpHeight(0.25f);
                     jumpHeightLevels.sprite = sprites[1];
                     break;
                 case 2:
+                    player.GetComponent<PlayerController>().setJumpHeight(0.25f);
                     jumpHeightLevels.sprite = sprites[2];
                     break;
                 case 3:
+                    player.GetComponent<PlayerController>().setJumpHeight(0.25f);
                     jumpHeightLevels.sprite = sprites[3];
                     break;
                 default:
                     break;
             }
 
-            coins = coins - 1;
-            coinShopCounterText.text = "Coins: " + coins.ToString();
-            coinCounterText.text = "Coins: " + coins.ToString();
+                coins = coins - 1;
+                coinShopCounterText.text = "Coins: " + coins.ToString();
+                coinCounterText.text = "Coins: " + coins.ToString();
 
             if (jumpHeightLevel <= 3)
             {

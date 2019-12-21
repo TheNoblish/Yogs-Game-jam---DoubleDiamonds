@@ -14,6 +14,7 @@ public class backGround : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        player = GameObject.Find("Player");
         position = startPos;
         rb = gameObject.GetComponent<Rigidbody2D>();
  

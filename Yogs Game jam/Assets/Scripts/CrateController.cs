@@ -9,7 +9,7 @@ public class CrateController : MonoBehaviour
 
     AudioSource audioSource;
 
-    bool withinDistance;
+    public bool withinDistance;
 
     // Start is called before the first frame update
     void Start()
@@ -43,7 +43,7 @@ public class CrateController : MonoBehaviour
         }
     }
 
-    void OpenCrate()
+    public void OpenCrate()
     {
         audioSource.Play();
         coin.SetActive(true);

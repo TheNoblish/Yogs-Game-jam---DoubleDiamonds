@@ -68,6 +68,7 @@
     <Compile Include="Assets\Scripts\CatSounds.cs" />
     <Compile Include="Assets\Scripts\ChangeResolution.cs" />
     <Compile Include="Assets\Scripts\CoinShop.cs" />
+    <Compile Include="Assets\Scripts\Controller2D.cs" />
     <Compile Include="Assets\Scripts\CrateController.cs" />
     <Compile Include="Assets\Scripts\DialogueSystem.cs" />
     <Compile Include="Assets\Scripts\enemyController.cs" />

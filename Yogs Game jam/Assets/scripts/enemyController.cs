@@ -110,7 +110,7 @@ public class enemyController : MonoBehaviour
             passive = false;
         }
 
-        if (gotPackage)
+        if (gotPackage && !pettedCat)
         {
             animator.SetBool("hasBox", true);
         }
