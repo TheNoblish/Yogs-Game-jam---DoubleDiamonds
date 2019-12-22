@@ -104,7 +104,7 @@ public class enemyController : MonoBehaviour
         }
 
         if (passive)
-         pets -= 0.1f;
+         //pets -= 0.1f;
         if (pets <= 0)
         {
             passive = false;

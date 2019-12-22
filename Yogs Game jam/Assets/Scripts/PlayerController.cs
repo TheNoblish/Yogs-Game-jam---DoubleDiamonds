@@ -18,7 +18,13 @@ public class PlayerController : MonoBehaviour
 
     bool doubleJump;
 
-    bool isClimbing;
+    public bool isClimbing;
+    bool onLadder;
+
+    public float climbSpeed;
+    private float climbVelocity;
+    private float gravityStore;
+
     bool isMoving;
     public bool doubleJumped;
     public bool isJumping;
@@ -47,6 +53,8 @@ public class PlayerController : MonoBehaviour
     Vector3 velocity;
     float velocityXSmoothing;
 
+    float prevSpeed;
+
     float accelerationTimeAirborne = 0.2f;
     float accelerationTimeGrounded = 0.1f;
 
@@ -72,6 +80,10 @@ public class PlayerController : MonoBehaviour
 
         baseSpeed = speed;
         baseJumpHeight = maxJumpHeight;
+
+        gravityStore = gravity;
+
+        prevSpeed = animator.speed;
     }
 
     // Update is called once per frame
@@ -131,15 +143,24 @@ public class PlayerController : MonoBehaviour
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
 
+
         if (controller.collisions.above || controller.collisions.below)
         {
-            velocity.y = 0;
+            if (!isClimbing)
+            {
+                velocity.y = 0;
+            }
+
         }
 
         if (Input.GetKeyDown(KeyCode.Space) && controller.collisions.below)
         {
-            velocity.y = maxJumpVelocity;
-            doubleJump = true;
+            if (!isClimbing)
+            {
+                velocity.y = maxJumpVelocity;
+                doubleJump = true;
+            }
+
         } else if (Input.GetKeyDown(KeyCode.Space) && doubleJump)
         {
             doubleJump = false;
@@ -153,6 +174,14 @@ public class PlayerController : MonoBehaviour
                 velocity.y = minJumpVelocity;
             }
 
+        }
+
+        if ((velocity.y > 0 || velocity.y < 0) && !isClimbing)
+        {
+            animator.SetBool("isJumping", true);
+        } else
+        {
+            animator.SetBool("isJumping", false);
         }
 
         if (onPackage)
@@ -228,6 +257,44 @@ public class PlayerController : MonoBehaviour
         //    animator.SetBool("isJumping", false);
         //}
 
+
+
+        if (isClimbing)
+        {
+
+            if (input.y > 0)
+            {
+                animator.speed = prevSpeed;
+                animator.SetBool("isClimbing", true);
+                onLadder = true;
+                climbVelocity = climbSpeed * input.y;
+                velocity = new Vector2(velocity.x, climbVelocity);
+                controller.Move(velocity * Time.deltaTime);
+
+            } else if (input.y < 0)
+            {
+                animator.speed = prevSpeed;
+                animator.SetBool("isClimbing", true);
+                onLadder = true;
+                climbVelocity = climbSpeed * input.y;
+                velocity = new Vector2(velocity.x, climbVelocity);
+                controller.Move(velocity * Time.deltaTime);
+            } else if (input.y == 0 && onLadder)
+            {
+                animator.SetBool("isClimbing", true);
+                velocity.y = 0;
+                animator.speed = 0;
+            }
+            gravity = 0f;
+        }
+
+        if (!isClimbing)
+        {
+            onLadder = false;
+            animator.speed = prevSpeed;
+            animator.SetBool("isClimbing", false);
+            gravity = -(2 * maxJumpHeight) / Mathf.Pow(timeToJumpApex, 2);
+        }
     }
 
 
@@ -284,18 +351,13 @@ public class PlayerController : MonoBehaviour
 
         if (other.CompareTag("NPC"))
         {
-            //rigidbody2d.constraints = RigidbodyConstraints2D.FreezePositionX;
             other.GetComponent<NPCManager>().startDialogue();
         }
-    }
 
-    void OnCollisionEnter2D(Collision2D other)
-    {
-        //if (other.gameObject.CompareTag("NPC"))
-        //{
-        //    //rigidbody2d.constraints = RigidbodyConstraints2D.FreezePositionX;
-        //    other.gameObject.GetComponent<NPCManager>().startDialogue();
-        //}
+        if (other.CompareTag("Ladder"))
+        {
+            isClimbing = true;
+        }
     }
 
     void OnCollisionStay2D(Collision2D other)
@@ -309,11 +371,6 @@ public class PlayerController : MonoBehaviour
                 other.gameObject.GetComponent<CrateController>().OpenCrate();
             }
         }
-    }
-
-    void OnTriggerStay2D(Collider2D other)
-    {
-
     }
 
     void OnTriggerExit2D(Collider2D other)
@@ -337,75 +394,22 @@ public class PlayerController : MonoBehaviour
         {
             isJumping = true;
         }
-    }
 
-    private void FixedUpdate()
-    {
-
-        RaycastHit2D raycastHit2D = Physics2D.Raycast(transform.position, Vector2.up, raycastDistance, ladder);
-
-        if (raycastHit2D.collider != null)
+        if (other.CompareTag("Ladder"))
         {
-            controller.collisions.above = false;
-            if (Input.GetAxisRaw("Vertical") > 0)
-            {
-                isClimbing = true;
-                transform.Translate(new Vector2(0, 1f) * Time.deltaTime * speed);
-                gravity = 0;          
-            }
-        }
-        else
-        {
-            gravity = -(2 * maxJumpHeight) / Mathf.Pow(timeToJumpApex, 2);
+            onLadder = false;
             isClimbing = false;
         }
-
-        //    if (isClimbing == true && raycastHit2D.collider != null)
-        //    {
-        //        inputVertical = Input.GetAxisRaw("Vertical");
-
-        //        rigidbody2d.velocity = new Vector2(rigidbody2d.velocity.x, inputVertical * speed);
-        //        rigidbody2d.gravityScale = 0;
-        //    }
-        //    else
-        //    {
-
-        //        rigidbody2d.gravityScale = 5;
-        //    }
-
-        //    float prevSpeed = 1f;
-
-        //    if (inputVertical > 0 && isClimbing)
-        //    {
-        //        animator.SetBool("isClimbing", true);
-        //        animator.speed = prevSpeed;
-        //    }
-        //    else if (inputVertical <= 0 && isClimbing)
-        //    {
-        //        prevSpeed = animator.speed;
-        //        animator.speed = 0;
-        //    }
-        //    else
-        //    {
-        //        animator.speed = prevSpeed;
-        //        animator.SetBool("isClimbing", false);
-        //    }
-        //}
     }
 
         public void setMovementSpeed(float newSpeed)
         {
-            speed = speed + 1;
+            baseSpeed = baseSpeed + newSpeed;
         }
 
         public void setJumpHeight(float newHeight)
         {
-            //jumpHeight = jumpHeight + 1;
-        }
-
-        public void setThrowDistance(float newDistance)
-        {
-            speed = speed + 1;
+            baseJumpHeight = baseJumpHeight - newHeight;
         }
     
 }

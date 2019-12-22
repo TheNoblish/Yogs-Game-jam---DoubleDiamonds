@@ -53,5 +53,10 @@ public class snowballs : MonoBehaviour
         throwForce = minThrowForce;
     }
 
+    public void increaseSnowThrow(float newForce)
+    {
+        maxThrowForce = maxThrowForce + newForce;
+    }
+
 
 }

@@ -17,6 +17,7 @@ TagManager:
   - GoldCoin
   - End
   - Crate
+  - Ladder
   layers:
   - Default
   - TransparentFX

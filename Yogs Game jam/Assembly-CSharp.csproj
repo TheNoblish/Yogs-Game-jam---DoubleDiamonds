@@ -78,6 +78,7 @@
     <Compile Include="Assets\Scripts\FullscreenToggle.cs" />
     <Compile Include="Assets\Scripts\IngameMenu.cs" />
     <Compile Include="Assets\Scripts\IntroCutscene.cs" />
+    <Compile Include="Assets\Scripts\LadderZone.cs" />
     <Compile Include="Assets\Scripts\levelBuilder.cs" />
     <Compile Include="Assets\Scripts\MusicFadeOut.cs" />
     <Compile Include="Assets\Scripts\nest.cs" />
