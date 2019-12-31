@@ -124,10 +124,14 @@ public class FlyingEnemy : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
+        if (other.CompareTag("Player"))
+        {
+            Debug.Log("entered!");
+        }
         if (other.CompareTag("Player") && !isAttacking && PlayerController.isCarrying)
         {
             speed = 5;
-            Debug.Log("test");
+            Debug.Log("attacking!");
             isAttacking = true;
             //gameObject.transform.Rotate(0, 0, 35);
         }

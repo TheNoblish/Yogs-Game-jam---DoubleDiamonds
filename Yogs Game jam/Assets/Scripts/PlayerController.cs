@@ -89,7 +89,6 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
 
         if (input.x > 0)
@@ -200,7 +199,6 @@ public class PlayerController : MonoBehaviour
             if (Input.GetKey("s") || Input.GetKey("down"))
             {
                 animator.SetBool("isPetting", true);
-                Debug.Log("pet");
                 currentEnemy.GetComponent<enemyController>().pets++;
             }
             else
@@ -364,10 +362,8 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Crate"))
         {
-            Debug.Log("test2");
             if (Input.GetKeyDown("e") || Input.GetKey("right ctrl"))
             {
-                Debug.Log("test");
                 other.gameObject.GetComponent<CrateController>().OpenCrate();
             }
         }
